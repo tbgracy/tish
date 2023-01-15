@@ -42,3 +42,4 @@ public class Commande implements Serializable {
         this.etatCmd = etatCmd;
     }
 }
+

@@ -1,6 +1,8 @@
 package com.tish.entities;
 
-public class TshirtItem {
+import java.io.Serializable;
+
+public class TshirtItem implements Serializable {
     private static final long idPanier = 1L;
     private static final long idTShirt = 1L;
     private int quantite;
