@@ -4,11 +4,35 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Paiement implements Serializable {
-    private static final long idUtilisateur = 1L;
-    private static final long idCmd = 1L;
+    private long idUtilisateurL;
+    private long idCmd;
     private String typePaiement;
     private Double montant;
     private Date date;
+
+    public Paiement(long idUtilisateurL, long idCmd, String typePaiement, Double montant, Date date) {
+        this.idUtilisateurL = idUtilisateurL;
+        this.idCmd = idCmd;
+        this.typePaiement = typePaiement;
+        this.montant = montant;
+        this.date = date;
+    }
+
+    public long getIdUtilisateurL() {
+        return idUtilisateurL;
+    }
+
+    public void setIdUtilisateurL(long idUtilisateurL) {
+        this.idUtilisateurL = idUtilisateurL;
+    }
+
+    public long getIdCmd() {
+        return idCmd;
+    }
+
+    public void setIdCmd(long idCmd) {
+        this.idCmd = idCmd;
+    }
 
     public String getTypePaiement() {
         return typePaiement;

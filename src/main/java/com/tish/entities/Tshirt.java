@@ -4,11 +4,27 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Tshirt implements Serializable {
-    private static final long idTShirt = 1L;
+    private long idTShirt;
     private String motif;
     private List<String> couleur;
     private int nombre;
     private String taille;
+
+    public Tshirt(long idTShirt, String motif, List<String> couleur, int nombre, String taille) {
+        this.idTShirt = idTShirt;
+        this.motif = motif;
+        this.couleur = couleur;
+        this.nombre = nombre;
+        this.taille = taille;
+    }
+
+    public long getIdTShirt() {
+        return idTShirt;
+    }
+
+    public void setIdTShirt(long idTShirt) {
+        this.idTShirt = idTShirt;
+    }
 
     public String getMotif() {
         return motif;

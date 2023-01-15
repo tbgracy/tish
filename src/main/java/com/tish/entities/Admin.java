@@ -6,6 +6,11 @@ public class Admin implements Serializable {
     private String nomUtilisateur;
     private String motDePasse;
 
+    public Admin(String nomUtilisateur, String motDePasse) {
+        this.nomUtilisateur = nomUtilisateur;
+        this.motDePasse = motDePasse;
+    }
+
     public String getNomUtilisateur() {
         return nomUtilisateur;
     }
