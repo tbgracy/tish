@@ -20,6 +20,7 @@ public class AdminDAO extends DAO<Admin> {
             this.connect.createStatement().execute(INSERT_ADMIN_SQL, new String[]{obj.getNomUtilisateur(), obj.getMotDePasse()});
             return true;
         } catch (SQLException e) {
+        	e.printStackTrace();
             return false;
         }
     }
