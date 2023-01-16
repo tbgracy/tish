@@ -8,6 +8,9 @@ public class User implements Serializable {
     private String motDePasse;
     private String numeroTel;
 
+    public User() {
+    }
+
     public User(long idUtilisateurL, String nomUtilsateur, String motDePasse, String numeroTel) {
         this.idUtilisateurL = idUtilisateurL;
         this.nomUtilsateur = nomUtilsateur;
@@ -16,7 +19,7 @@ public class User implements Serializable {
     }
 
     public long getIdUtilisateurL() {
-        return idUtilisateurL;
+        return this.idUtilisateurL;
     }
 
     public void setIdUtilisateurL(long idUtilisateurL) {
@@ -24,7 +27,7 @@ public class User implements Serializable {
     }
 
     public String getNomUtilsateur() {
-        return nomUtilsateur;
+        return this.nomUtilsateur;
     }
 
     public void setNomUtilsateur(String nomUtilsateur) {
