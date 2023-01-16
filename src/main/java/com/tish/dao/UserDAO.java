@@ -5,6 +5,7 @@ import com.tish.entities.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends DAO<User> {
@@ -66,7 +67,7 @@ public class UserDAO extends DAO<User> {
     @Override
     public List<User> getAll() {
         String GET_ALL_SQL = "SELECT * FROM `user`";
-        List<User> list_user = null;
+        List<User> list_user = new ArrayList<User>();
         try {
             ResultSet result = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(GET_ALL_SQL);
             int size = result.getFetchSize();
