@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Admin implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int idUtilisateur;
+	private int idAdmin;
     private String nomUtilisateur;
     private String motDePasse;
 
@@ -16,18 +16,18 @@ public class Admin implements Serializable {
     	this.motDePasse = motDePasse;
     }
 
-    public Admin(int idUtilisateur,String nomUtilisateur, String motDePasse) {
-    	this.setIdUtilisateur(idUtilisateur);
+    public Admin(int idAdmin,String nomUtilisateur, String motDePasse) {
+    	this.idAdmin = idAdmin;
         this.nomUtilisateur = nomUtilisateur;
         this.motDePasse = motDePasse;
     }
     
-    public int getIdUtilisateur() {
-		return idUtilisateur;
+    public int getIdAdmin() {
+		return idAdmin;
 	}
 
-	public void setIdUtilisateur(int idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
+	public void setIdAdmin(int idUtilisateur) {
+		this.idAdmin = idUtilisateur;
 	}
 
     public String getNomUtilisateur() {

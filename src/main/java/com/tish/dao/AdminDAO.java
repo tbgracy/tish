@@ -33,10 +33,10 @@ public class AdminDAO extends DAO<Admin> {
 
     @Override
     public boolean delete(Admin obj) {
-        String DELETE_ADMIN_SQL = "DELETE Admin WHERE nomUtilisateur=?";
+        String DELETE_ADMIN_SQL = "DELETE FROM Admin WHERE nomUtilisateur=?";
         try {
         	PreparedStatement prepare = this.connect.prepareStatement(DELETE_ADMIN_SQL);
-        	prepare.setInt(1 ,obj.getIdUtilisateur());
+        	prepare.setInt(1 ,obj.getIdAdmin());
         	prepare.executeUpdate();
         	prepare.close();
             return true;
@@ -47,12 +47,12 @@ public class AdminDAO extends DAO<Admin> {
 
     @Override
     public boolean update(Admin obj) {
-        String UPDATE_ADMIN_SQL = "UPATE Admin SET nomUtilisateur=?, nomPassword=? WHERE idAdmin=?";
+        String UPDATE_ADMIN_SQL = "UPDATE Admin SET nomUtilisateur=?, nomPassword=? WHERE idAdmin=?";
         try {
         	PreparedStatement prepare = this.connect.prepareStatement(UPDATE_ADMIN_SQL);
         	prepare.setString(1, obj.getNomUtilisateur());
         	prepare.setString(2, obj.getMotDePasse());
-        	prepare.setInt(3, obj.getIdUtilisateur());
+        	prepare.setInt(3, obj.getIdAdmin());
         	prepare.executeUpdate();
         	prepare.close();
             return true;
