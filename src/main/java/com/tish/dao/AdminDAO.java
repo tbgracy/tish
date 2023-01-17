@@ -3,8 +3,10 @@ package com.tish.dao;
 import com.tish.entities.Admin;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class AdminDAO extends DAO<Admin> {
@@ -15,9 +17,13 @@ public class AdminDAO extends DAO<Admin> {
 
     @Override
     public boolean create(Admin obj) {
-        String INSERT_ADMIN_SQL = "INSERT INTO admin(`nomUtilsateur`, `motDePasse`) VALUES(?, ?);";
+        String INSERT_ADMIN_SQL = "INSERT INTO Admin (nomUtilisateur, motDePasse) VALUES(?, ?)";
         try {
-            this.connect.createStatement().execute(INSERT_ADMIN_SQL, new String[]{obj.getNomUtilisateur(), obj.getMotDePasse()});
+            PreparedStatement prepare =  this.connect.prepareStatement(INSERT_ADMIN_SQL);
+            prepare.setString(1, obj.getNomUtilisateur());
+            prepare.setString(2, obj.getMotDePasse());
+            prepare.executeUpdate();
+            prepare.close();
             return true;
         } catch (SQLException e) {
         	e.printStackTrace();
@@ -27,9 +33,12 @@ public class AdminDAO extends DAO<Admin> {
 
     @Override
     public boolean delete(Admin obj) {
-        String DELETE_ADMIN_SQL = "DELETE admin WHERE `admin`.`nomUtilisateur` = ?;";
+        String DELETE_ADMIN_SQL = "DELETE Admin WHERE nomUtilisateur=?";
         try {
-            this.connect.createStatement().execute(DELETE_ADMIN_SQL, new String[]{obj.getNomUtilisateur()});
+        	PreparedStatement prepare = this.connect.prepareStatement(DELETE_ADMIN_SQL);
+        	prepare.setInt(1 ,obj.getIdUtilisateur());
+        	prepare.executeUpdate();
+        	prepare.close();
             return true;
         } catch (SQLException e) {
             return false;
@@ -38,9 +47,14 @@ public class AdminDAO extends DAO<Admin> {
 
     @Override
     public boolean update(Admin obj) {
-        String UPDATE_ADMIN_SQL = "";
+        String UPDATE_ADMIN_SQL = "UPATE Admin SET nomUtilisateur=?, nomPassword=? WHERE idAdmin=?";
         try {
-            this.connect.createStatement().execute(UPDATE_ADMIN_SQL, new String[]{obj.getNomUtilisateur()});
+        	PreparedStatement prepare = this.connect.prepareStatement(UPDATE_ADMIN_SQL);
+        	prepare.setString(1, obj.getNomUtilisateur());
+        	prepare.setString(2, obj.getMotDePasse());
+        	prepare.setInt(3, obj.getIdUtilisateur());
+        	prepare.executeUpdate();
+        	prepare.close();
             return true;
         } catch (SQLException e) {
             return false;
@@ -50,18 +64,22 @@ public class AdminDAO extends DAO<Admin> {
     @Override
     public Admin find(String nomUtilisateur) {
         Admin admin = new Admin();
-        String FIND_ADMIN_SQL = "SELECT admin WHERE `admin`.`nomUtilisateur`=" + nomUtilisateur;
+        String FIND_ADMIN_SQL = "SELECT nomUtilisateur, motDePasse FROM Admin WHERE nomUtilisateur=?";
         try {
-            ResultSet result = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(FIND_ADMIN_SQL);
-            if (result.first()) admin = new Admin(nomUtilisateur, result.getString("motDePasse"));
+            PreparedStatement prepare = this.connect.prepareStatement(FIND_ADMIN_SQL);
+            prepare.setString(1, nomUtilisateur);
+            ResultSet result = prepare.executeQuery();
+            if (result.next()) admin = new Admin(nomUtilisateur, result.getString("motDePasse"));
+            prepare.close();
         } catch (SQLException e) {
+        	e.printStackTrace();
             return null;
         }
         return admin;
     }
 
     @Override
-    public Admin find(Long id) {
+    public Admin find(int id) {
         return null;
     }
 

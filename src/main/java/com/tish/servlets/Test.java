@@ -38,10 +38,17 @@ public class Test extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
 		Class.forName("org.sqlite.JDBC");
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:tish.db");
+		
+		// get pathdb from Environement Variable
+		String pathdb = System.getenv("DATABASE");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:"+pathdb);
+		System.out.println("connection succes");
+		
 		AdminDAO admin = new AdminDAO(conn);
-		boolean result = admin.create(new Admin("Gracy", "12213223"));
-		response.getWriter().append(String.valueOf(result));
+//		boolean result = admin.create(new Admin("Gracy", "12213223"));
+		Admin result = admin.find("Gracy");
+		response.getWriter().append(result.getNomUtilisateur() + " " + result.getMotDePasse());
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
