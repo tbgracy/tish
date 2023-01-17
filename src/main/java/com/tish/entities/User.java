@@ -3,7 +3,7 @@ package com.tish.entities;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private long idUtilisateurL;
+    private int idUtilisateur;
     private String nomUtilsateur;
     private String motDePasse;
     private String numeroTel;
@@ -11,19 +11,19 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(long idUtilisateurL, String nomUtilsateur, String motDePasse, String numeroTel) {
-        this.idUtilisateurL = idUtilisateurL;
+    public User(int idUtilisateur, String nomUtilsateur, String motDePasse, String numeroTel) {
+        this.idUtilisateur = idUtilisateur;
         this.nomUtilsateur = nomUtilsateur;
         this.motDePasse = motDePasse;
         this.numeroTel = numeroTel;
     }
 
-    public long getIdUtilisateurL() {
-        return this.idUtilisateurL;
+    public int getIdUtilisateur() {
+        return this.idUtilisateur;
     }
 
-    public void setIdUtilisateurL(long idUtilisateurL) {
-        this.idUtilisateurL = idUtilisateurL;
+    public void setIdUtilisateurL(int idUtilisateurL) {
+        this.idUtilisateur = idUtilisateurL;
     }
 
     public String getNomUtilsateur() {
