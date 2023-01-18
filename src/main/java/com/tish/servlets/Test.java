@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tish.dao.AdminDAO;
+import com.tish.dao.UserDAO;
 import com.tish.database.DatabaseConnection;
 import com.tish.entities.Admin;
+import com.tish.entities.User;
 
 /**
  * Servlet implementation class Test
@@ -38,16 +40,22 @@ public class Test extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
 		Class.forName("org.sqlite.JDBC");
-		
-		// get pathdb from Environement Variable
-		String pathdb = System.getenv("DATABASE");
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:"+pathdb);
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:/mnt/d/javaProject/tish/tish.db");
 		System.out.println("connection succes");
 		
 		AdminDAO admin = new AdminDAO(conn);
 //		boolean result = admin.create(new Admin("Gracy", "12213223"));
-		Admin result = admin.find("Gracy");
-		response.getWriter().append(result.getNomUtilisateur() + " " + result.getMotDePasse());
+//		Admin result = admin.find("Gracy");
+//		response.getWriter().append(result.getNomUtilisateur() + " " + result.getMotDePasse());
+		
+		UserDAO user = new UserDAO(conn);
+//		boolean result = user.create(new User("Gracy", "261password", "030323884"));
+//		response.getWriter().append(String.valueOf(result));
+		
+		List<User> listusr = user.getAll();
+		response.getWriter().append(listusr.get(0).getNomUtilisateur());
+		
+		
 		
 		} catch (Exception e) {
 			e.printStackTrace();
