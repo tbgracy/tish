@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Commande implements Serializable {
-    private  long idCmd;
+    private static final long serialVersionUID = 1L;
+	private  long idCmd;
     private String numeroTel;
     private int nombreCmd;
     private Date dateCmd;
