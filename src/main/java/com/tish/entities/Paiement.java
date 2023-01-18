@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Paiement implements Serializable {
-    private long idUtilisateurL;
+    private static final long serialVersionUID = 1L;
+	private long idUtilisateurL;
     private long idCmd;
     private String typePaiement;
     private Double montant;

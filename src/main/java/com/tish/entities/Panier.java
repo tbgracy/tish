@@ -3,7 +3,8 @@ package com.tish.entities;
 import java.io.Serializable;
 
 public class Panier implements Serializable {
-    private long IdPanier;
+    private static final long serialVersionUID = 1L;
+	private long IdPanier;
     private long idUtilisateur;
     private long idTShirt;
 

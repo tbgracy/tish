@@ -3,50 +3,57 @@ package com.tish.entities;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private long idUtilisateurL;
-    private String nomUtilsateur;
-    private String motDePasse;
-    private String numeroTel;
+	private static final long serialVersionUID = 1L;
+	private int idUtilisateur;
+	private String nomUtilisateur;
+	private String motDePasse;
+	private String numeroTel;
 
-    public User() {
-    }
+	public User() {
+	}
 
-    public User(long idUtilisateurL, String nomUtilsateur, String motDePasse, String numeroTel) {
-        this.idUtilisateurL = idUtilisateurL;
-        this.nomUtilsateur = nomUtilsateur;
-        this.motDePasse = motDePasse;
-        this.numeroTel = numeroTel;
-    }
+	public User(String nomUtilisateur, String motDePasse, String numeroTel) {
+		this.nomUtilisateur = nomUtilisateur;
+		this.motDePasse = motDePasse;
+		this.numeroTel = numeroTel;
+	}
 
-    public long getIdUtilisateurL() {
-        return this.idUtilisateurL;
-    }
+	public User(int idUtilisateur, String nomUtilisateur, String motDePasse, String numeroTel) {
+		this.idUtilisateur = idUtilisateur;
+		this.nomUtilisateur = nomUtilisateur;
+		this.motDePasse = motDePasse;
+		this.numeroTel = numeroTel;
+	}
 
-    public void setIdUtilisateurL(long idUtilisateurL) {
-        this.idUtilisateurL = idUtilisateurL;
-    }
+	public int getIdUtilisateur() {
+		return this.idUtilisateur;
+	}
 
-    public String getNomUtilsateur() {
-        return this.nomUtilsateur;
-    }
+	public void setIdUtilisateurL(int idUtilisateurL) {
+		this.idUtilisateur = idUtilisateurL;
+	}
 
-    public void setNomUtilsateur(String nomUtilsateur) {
-        this.nomUtilsateur = nomUtilsateur;
-    }
+	public String getNomUtilisateur() {
+		return this.nomUtilisateur;
+	}
 
-    public String getMotDePasse() {
-        return motDePasse;
-    }
+	public void setNomUtilisateur(String nomUtilsateur) {
+		this.nomUtilisateur = nomUtilsateur;
+	}
 
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
-    }
+	public String getMotDePasse() {
+		return motDePasse;
+	}
 
-    public String getNumeroTel() {
-        return numeroTel;
-    }
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
 
-    public void setNumeroTel(String numeroTel) {
-        this.numeroTel = numeroTel;
-    }
+	public String getNumeroTel() {
+		return numeroTel;
+	}
+
+	public void setNumeroTel(String numeroTel) {
+		this.numeroTel = numeroTel;
+	}
 }

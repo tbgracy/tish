@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Tshirt implements Serializable {
-    private long idTShirt;
+    private static final long serialVersionUID = 1L;
+	private long idTShirt;
     private String motif;
     private List<String> couleur;
     private int nombre;
