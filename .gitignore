@@ -19,4 +19,6 @@ target/
 .sts4-cache
 
 ### VS Code ###
-.vscode/
+.vscode/build/
+build/
+src/main/webapp/WEB-INF/lib/sqlite-jdbc-3.40.0.0.jar
