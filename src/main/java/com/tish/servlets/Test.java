@@ -36,26 +36,14 @@ public class Test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
 		Class.forName("org.sqlite.JDBC");
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:/mnt/d/javaProject/tish/tish.db");
+		
+		AdminDAO admin = new AdminDAO(DatabaseConnection.getInstance());
 		System.out.println("connection succes");
-		
-		AdminDAO admin = new AdminDAO(conn);
-//		boolean result = admin.create(new Admin("Gracy", "12213223"));
-//		Admin result = admin.find("Gracy");
-//		response.getWriter().append(result.getNomUtilisateur() + " " + result.getMotDePasse());
-		
-		UserDAO user = new UserDAO(conn);
-//		boolean result = user.create(new User("Gracy", "261password", "030323884"));
-//		response.getWriter().append(String.valueOf(result));
-		
-		List<User> listusr = user.getAll();
-		response.getWriter().append(listusr.get(0).getNomUtilisateur());
-		
-		
+		boolean result = admin.create(new Admin("Naruto", "12213223"));
+		response.getWriter().append(String.valueOf(result));		
 		
 		} catch (Exception e) {
 			e.printStackTrace();
