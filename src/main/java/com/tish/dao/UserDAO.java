@@ -74,10 +74,10 @@ public class UserDAO extends DAO<User> {
 				user = new User(result.getInt("idUtilisateur"), result.getString("nomUtilisateur"),
 						result.getString("motDePasse"), result.getString("numeroTel"));
 			prepare.close();
-		} catch (SQLException e) {
+			return user;
+		} catch (Exception e) {
 			return null;
 		}
-		return user;
 	}
 
 	@Override
