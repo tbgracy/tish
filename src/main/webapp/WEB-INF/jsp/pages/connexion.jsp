@@ -10,16 +10,19 @@
 </head>
 <body>
 	<jsp:include page="../composants/navbar.jsp"/>
+	${ request.getParameter("error") }
 	<main class="grid">
 	<div></div>
 		<article>
-			<form action="#" method='POST'>
+			<form action="connexion" method='POST'>
+				
 				<h3>Connexion</h3>
 				 <label for='pseudo'>Pseudo</label>
 				 <input type='text' id='pseudo' name='pseudo' placeholder='Votre pseudo' required>
 				 <label for='motdepasse'>Mot de passe</label>
 				 <input type='password' id='motdepasse' name='motdepasse' placeholder='Votre mot de passe' required>
 				 <button>Se connecter</button>
+				 <p>Pas encore de compte? S'inscrire <a href="inscription">ici</a>.</p>
 			</form>
 		</article>
 		<div></div>

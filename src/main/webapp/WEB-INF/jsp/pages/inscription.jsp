@@ -15,7 +15,7 @@
 	<%
 	if ((boolean) request.getAttribute("connexionReussie")) {
 	%>
-	<dialog open>
+	<%--	<dialog open>
 	<article>
 		<a href="#close" aria-label="Close" class="close"
 			onclick="fermerMessage(event)"></a> Inscription réussie
@@ -26,6 +26,9 @@
 		</footer>
 	</article>
 	</dialog>
+	--%>
+	<jsp:include page="../composants/message.jsp"><jsp:param
+			name="message" value="Inscription réussie" /></jsp:include>
 	<%
 	}
 	%>
@@ -48,6 +51,9 @@
 					type='number' id='numerotel' name='numerotel'
 					placeholder='Votre numéro de téléphone' required>
 				<button>S'inscrire</button>
+				<p>
+					Déjà inscrit(e)? Se connecter <a href="inscription">ici</a>.
+				</p>
 			</form>
 		</article>
 		<div></div>
