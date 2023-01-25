@@ -1,11 +1,11 @@
     <nav>
         <ul>
-            <li><a href="/">Accueil</a></li>
+            <li><a href="">Accueil</a></li>
             <li><a href="#">Catalogue</a></li>
         </ul>
         <ul>
             <li>
-                <div id="logo"><img src="" alt="logo_tish"></div>
+                <div id="logo"><img src="${pageContext.request.contextPath}/ressources/images/tish-logo.png" alt="logo_tish"></div>
             </li>
         </ul>
         <ul>
