@@ -38,12 +38,17 @@ public class Test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
-		Class.forName("org.sqlite.JDBC");
+//		Class.forName("org.sqlite.JDBC");
 		
-		AdminDAO admin = new AdminDAO(DatabaseConnection.getInstance());
+//		AdminDAO admin = new AdminDAO(DatabaseConnection.getInstance());
 		System.out.println("connection succes");
-		boolean result = admin.create(new Admin("Naruto", "12213223"));
-		response.getWriter().append(String.valueOf(result));		
+//		boolean result = admin.create(new Admin("Naruto", "12213223"));
+		UserDAO user = new UserDAO(DatabaseConnection.getInstance());
+		String username = (String) request.getParameter("username");
+		User getUser = user.find(username);
+		response.getWriter().append(String.valueOf(getUser));	
+		response.getWriter().append("\n");
+		response.getWriter().append(String.valueOf(username));		
 		
 		} catch (Exception e) {
 			e.printStackTrace();
