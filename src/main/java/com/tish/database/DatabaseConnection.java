@@ -2,7 +2,6 @@ package com.tish.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DatabaseConnection {
 	private String url = "jdbc:sqlite:tish.db";
@@ -11,9 +10,10 @@ public class DatabaseConnection {
 	
 	DatabaseConnection() {
 		try {
+			Class.forName("org.sqlite.JDBC");
 			connect = DriverManager.getConnection(url);
 			System.out.println("succes");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
