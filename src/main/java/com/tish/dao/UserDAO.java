@@ -62,7 +62,6 @@ public class UserDAO extends DAO<User> {
 		}
 	}
 
-	@Override
 	public User find(String username) {
 		User user = new User();
 		String FIND_USER_SQL = "SELECT * FROM Utilisateur WHERE nomUtilisateur=?";

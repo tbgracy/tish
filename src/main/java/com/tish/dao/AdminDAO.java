@@ -60,7 +60,6 @@ public class AdminDAO extends DAO<Admin> {
 		}
 	}
 
-	@Override
 	public Admin find(String nomUtilisateur) {
 		Admin admin = new Admin();
 		String FIND_ADMIN_SQL = "SELECT nomUtilisateur, motDePasse FROM Admin WHERE nomUtilisateur=?";

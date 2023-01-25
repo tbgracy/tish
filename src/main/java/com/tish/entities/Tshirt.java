@@ -1,61 +1,71 @@
 package com.tish.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Tshirt implements Serializable {
-    private static final long serialVersionUID = 1L;
-	private long idTShirt;
-    private String motif;
-    private List<String> couleur;
-    private int nombre;
-    private String taille;
+	private static final long serialVersionUID = 1L;
+	private int idTShirt;
+	private String motif;
+	private String couleur;
+	private int nombre;
+	private String taille;
 
-    public Tshirt(long idTShirt, String motif, List<String> couleur, int nombre, String taille) {
-        this.idTShirt = idTShirt;
-        this.motif = motif;
-        this.couleur = couleur;
-        this.nombre = nombre;
-        this.taille = taille;
-    }
+	public Tshirt() {
+		// empty
+	};
+	
+	public Tshirt(String motif, String couleur, int nombre, String taille) {
+		this.motif = motif;
+		this.couleur = couleur;
+		this.nombre = nombre;
+		this.taille = taille;
+	}
 
-    public long getIdTShirt() {
-        return idTShirt;
-    }
+	public Tshirt(int idTShirt, String motif, String couleur, int nombre, String taille) {
+		this.idTShirt = idTShirt;
+		this.motif = motif;
+		this.couleur = couleur;
+		this.nombre = nombre;
+		this.taille = taille;
+	}
 
-    public void setIdTShirt(long idTShirt) {
-        this.idTShirt = idTShirt;
-    }
+	public int getIdTShirt() {
+		return idTShirt;
+	}
 
-    public String getMotif() {
-        return motif;
-    }
+	public void setIdTShirt(int idTShirt) {
+		this.idTShirt = idTShirt;
+	}
 
-    public void setMotif(String motif) {
-        this.motif = motif;
-    }
+	public String getMotif() {
+		return motif;
+	}
 
-    public List<String> getCouleur() {
-        return couleur;
-    }
+	public void setMotif(String motif) {
+		this.motif = motif;
+	}
 
-    public void setCouleur(List<String> couleur) {
-        this.couleur = couleur;
-    }
+	public String getCouleur() {
+		return couleur;
+	}
 
-    public int getNombre() {
-        return nombre;
-    }
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
 
-    public void setNombre(int nombre) {
-        this.nombre = nombre;
-    }
+	public int getNombre() {
+		return nombre;
+	}
 
-    public String getTaille() {
-        return taille;
-    }
+	public void setNombre(int nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setTaille(String taille) {
-        this.taille = taille;
-    }
+	public String getTaille() {
+		return taille;
+	}
+
+	public void setTaille(String taille) {
+		this.taille = taille;
+	}
 }
