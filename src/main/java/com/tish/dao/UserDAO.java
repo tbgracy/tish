@@ -71,7 +71,7 @@ public class UserDAO extends DAO<User> {
 			prepare.setString(1, username);
 			ResultSet result = prepare.executeQuery();
 			if (result.next())
-				user = new User(result.getInt("idAdmin"), result.getString("nomUtilisateur"),
+				user = new User(result.getInt("idUtilisateur"), result.getString("nomUtilisateur"),
 						result.getString("motDePasse"), result.getString("numeroTel"));
 			prepare.close();
 		} catch (SQLException e) {
