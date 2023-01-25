@@ -70,12 +70,16 @@ public class UserDAO extends DAO<User> {
 			PreparedStatement prepare = this.connect.prepareStatement(FIND_USER_SQL);
 			prepare.setString(1, username);
 			ResultSet result = prepare.executeQuery();
-			if (result.next())
-				user = new User(result.getInt("idAdmin"), result.getString("nomUtilisateur"),
+			if (result.next()) {
+				user = new User(result.getInt("idUtilisateur"), result.getString("nomUtilisateur"),
 						result.getString("motDePasse"), result.getString("numeroTel"));
-			prepare.close();
-			return user;
+				prepare.close();
+				return user;
+			} else {
+				return null;
+			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -92,10 +96,10 @@ public class UserDAO extends DAO<User> {
 				user = new User(result.getInt("idAdmin"), result.getString("nomUtilisateur"),
 						result.getString("motDePasse"), result.getString("numeroTel"));
 			prepare.close();
-			return user;
 		} catch (SQLException e) {
 			return null;
 		}
+		return user;
 	}
 
 	@Override
