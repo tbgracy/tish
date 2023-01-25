@@ -5,34 +5,34 @@ import java.util.Date;
 
 public class Commande implements Serializable {
     private static final long serialVersionUID = 1L;
-	private  long idCmd;
-    private String numeroTel;
+	private int idCmd;
+    private int idUtilisateur;
     private int nombreCmd;
     private Date dateCmd;
     private boolean etatCmd;
 
-    public Commande(long idCmd, String numeroTel, int nombreCmd, Date dateCmd, boolean etatCmd) {
+    public Commande(int idCmd, int idUtilisateur, int nombreCmd, Date dateCmd, boolean etatCmd) {
         this.idCmd = idCmd;
-        this.numeroTel = numeroTel;
+        this.idUtilisateur = idUtilisateur;
         this.nombreCmd = nombreCmd;
         this.dateCmd = dateCmd;
         this.etatCmd = etatCmd;
     }
 
-    public long getIdCmd() {
+    public int getIdCmd() {
         return idCmd;
     }
 
-    public void setIdCmd(long idCmd) {
+    public void setIdCmd(int idCmd) {
         this.idCmd = idCmd;
     }
 
-    public String getNumeroTel() {
-        return numeroTel;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setNumeroTel(String numeroTel) {
-        this.numeroTel = numeroTel;
+    public void setIdUtilisateur(int numeroTel) {
+        this.idUtilisateur = numeroTel;
     }
 
     public int getNombreCmd() {
