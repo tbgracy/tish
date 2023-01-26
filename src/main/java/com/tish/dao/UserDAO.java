@@ -92,7 +92,7 @@ public class UserDAO extends DAO<User> {
 			prepare.setInt(1, id);
 			ResultSet result = prepare.executeQuery();
 			if (result.next())
-				user = new User(result.getInt("idAdmin"), result.getString("nomUtilisateur"),
+				user = new User(result.getInt("idUtilisateur"), result.getString("nomUtilisateur"),
 						result.getString("motDePasse"), result.getString("numeroTel"));
 			prepare.close();
 		} catch (SQLException e) {
