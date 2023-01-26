@@ -34,7 +34,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 
 	@Override
 	public boolean delete(Tshirt obj) {
-		String DELET_TSHIRT_SQL = "DELETE FROM Tshirt WHERE idTShirt=?";
+		String DELET_TSHIRT_SQL = "DELETE FROM Tshirt WHERE idTshirt=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(DELET_TSHIRT_SQL);
 			prepare.setInt(1, obj.getIdTShirt());
@@ -48,7 +48,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 
 	@Override
 	public boolean update(Tshirt obj) {
-		String UPDATE_TSHIRT_SQL = "UPDATE Tshirt SET motif=?, couleur=?, nombre=?, taille=? WHERE idTShirt=?";
+		String UPDATE_TSHIRT_SQL = "UPDATE Tshirt SET motif=?, couleur=?, nombre=?, taille=? WHERE idTshirt=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(UPDATE_TSHIRT_SQL);
 			prepare.setString(1, obj.getMotif());
@@ -73,7 +73,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 			prepare.setInt(1, id);
 			ResultSet result = prepare.executeQuery();
 			if (result.next())
-				tish = new Tshirt(result.getInt("idTShirt"), result.getString("motif"), result.getString("couleur"),
+				tish = new Tshirt(result.getInt("idTshirt"), result.getString("motif"), result.getString("couleur"),
 						result.getInt("nombre"), result.getString("taille"));
 			prepare.close();
 		} catch (SQLException e) {
@@ -89,7 +89,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 		try {
 			ResultSet result = this.connect.createStatement().executeQuery(GET_ALL_SQL);
 			while (result.next()) {
-				Tshirt tish = new Tshirt(result.getInt("idTShirt"), result.getString("motif"),
+				Tshirt tish = new Tshirt(result.getInt("idTshirt"), result.getString("motif"),
 						result.getString("couleur"), result.getInt("nombre"), result.getString("taille"));
 				list_tish.add(tish);
 			}
