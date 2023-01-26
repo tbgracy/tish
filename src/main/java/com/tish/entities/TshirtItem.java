@@ -3,38 +3,42 @@ package com.tish.entities;
 import java.io.Serializable;
 
 public class TshirtItem implements Serializable {
-    private static final long serialVersionUID = 1L;
-	private long idPanier;
-    private long idTShirt;
-    private int quantite;
+	private static final long serialVersionUID = 1L;
+	private int idCmd;
+	private int idTshirt;
+	private int quantite;
 
-    public TshirtItem(long idPanier, long idTShirt, int quantite) {
-        this.idPanier = idPanier;
-        this.idTShirt = idTShirt;
-        this.quantite = quantite;
-    }
+	public TshirtItem() {
 
-    public long getIdPanier() {
-        return idPanier;
-    }
+	}
 
-    public void setIdPanier(long idPanier) {
-        this.idPanier = idPanier;
-    }
+	public TshirtItem(int idCmd, int idTshirt, int quantite) {
+		this.idCmd = idCmd;
+		this.idTshirt = idTshirt;
+		this.quantite = quantite;
+	}
 
-    public long getIdTShirt() {
-        return idTShirt;
-    }
+	public int getIdCmd() {
+		return idCmd;
+	}
 
-    public void setIdTShirt(long idTShirt) {
-        this.idTShirt = idTShirt;
-    }
+	public void setIdCmd(int idCmd) {
+		this.idCmd = idCmd;
+	}
 
-    public int getQuantite() {
-        return quantite;
-    }
+	public int getIdTshirt() {
+		return idTshirt;
+	}
 
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
-    }
+	public void setIdTshirt(int idTshirt) {
+		this.idTshirt = idTshirt;
+	}
+
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
 }
