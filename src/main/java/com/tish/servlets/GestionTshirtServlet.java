@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.tish.dao.TshirtDAO;
+import com.tish.database.DatabaseConnection;
+import com.tish.entities.Tshirt;
+
 /**
  * Servlet implementation class GestionTshirtServlet
  */
@@ -33,24 +37,39 @@ public class GestionTshirtServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		String couleur = request.getParameter("couleur");
-//		String taille = request.getParameter("taille");
-//		// mila try block
-//		Integer nombre = Integer.valueOf(request.getParameter("nombre"));
-//		Integer prix = Integer.valueOf(request.getParameter("pu"));
-//		//
+		String couleur = request.getParameter("couleur");
+		String taille = request.getParameter("taille");
+		// mila try block
+		Integer nombre = Integer.valueOf(request.getParameter("nombre"));
+		Integer prix = Integer.valueOf(request.getParameter("pu"));
+		//
 
-		Part filePart = request.getPart("motif");
-		String filename = filePart.getSubmittedFileName();
-		System.out.println(getServletContext().getRealPath(request.getContextPath()));
-		File motif = new File(getServletContext().getRealPath(request.getContextPath()) + filename);
-		motif.createNewFile();
+//		Part filePart = request.getPart("motif");
+		
+//		String filename = filePart.getSubmittedFileName();
+		
+		String UPLOAD_DIRECTORY = "uploads";
+		
+		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+		File uploadDir = new File(uploadPath);
+		if (!uploadDir.exists()) uploadDir.mkdir();
+		
+		String filename = "";
+		
 		for (Part part : request.getParts()) {
-			part.write(getServletContext().getRealPath(request.getContextPath() + "/uploads/" + filename));
+			filename = part.getSubmittedFileName();
+			part.write(uploadPath + File.separator + filename);
 		}
-		System.out.println(request.getContextPath());
-		System.out.println("File uploaded successfully to : ");
-		doGet(request, response);
+		System.out.println("File uploaded successfully to : " + uploadPath + File.separator + filename);
+		
+		Tshirt tshirt = new Tshirt(filename, couleur, nombre, taille);
+		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
+		if (tshirtDAO.create(tshirt)) {
+			doGet(request, response);			
+		}else {
+			// error handling 
+		};
+		
 	}
 
 }

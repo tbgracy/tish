@@ -23,16 +23,16 @@
 						<fieldset>
 							<label for="mofif">
 								Motif sur le t-shirt 
-								<input type="file" name="motif" id="motif">
+								<input type="file" name="motif" id="motif" required>
 							</label> 
 							<div class="grid">
 							<label for="couleur">
 								Couleur du t-shirt 
-								<input type="color" name="couleur" id="couleur">
+								<input type="color" name="couleur" id="couleur" required>
 							</label> 
 							<label for="taille">Taille
 							<select id="taille"
-								name="taille">
+								name="taille" required>
 								<option>S</option>
 								<option>M</option>
 								<option>L</option>
@@ -42,8 +42,8 @@
 						</fieldset>
 						<fieldset class="grid">
 							<label for="nombre">Nombre en stock <input type="number"
-								name="nombre" id="nombre"></label> <label for="pu">Prix
-								unitaire <input type="number" name="pu" id="pu">
+								name="nombre" id="nombre" required></label> <label for="pu">Prix
+								unitaire <input type="number" name="pu" id="pu" required>
 							</label>
 						</fieldset>
 						<button>Ajouter</button>
