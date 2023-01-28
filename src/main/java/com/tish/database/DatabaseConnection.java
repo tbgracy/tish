@@ -12,7 +12,6 @@ public class DatabaseConnection {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			connect = DriverManager.getConnection(url);
-			System.out.println("succes");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

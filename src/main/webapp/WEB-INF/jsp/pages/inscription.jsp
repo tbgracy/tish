@@ -52,7 +52,7 @@
 					placeholder='Votre numéro de téléphone' required>
 				<button>S'inscrire</button>
 				<p>
-					Déjà inscrit(e)? Se connecter <a href="inscription">ici</a>.
+					Déjà inscrit(e)? Se connecter <a href="connexion">ici</a>.
 				</p>
 			</form>
 		</article>
