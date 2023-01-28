@@ -2,6 +2,8 @@ package com.tish.servlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -29,9 +31,18 @@ public class GestionTshirtServlet extends HttpServlet {
 	public GestionTshirtServlet() {
 		super();
 	}
+	
+	String UPLOAD_DIRECTORY = "uploads";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
+		
+		List<Tshirt> liste_tshirt = tshirtDAO.getAll();
+		request.setAttribute("liste_tshirt", liste_tshirt);
+		String uploadPath = getServletContext().getContextPath() + File.separator + UPLOAD_DIRECTORY + File.separator;
+		request.setAttribute("upload_path", uploadPath);
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/pages/gestion_tshirt.jsp").forward(request, response);
 	}
 
@@ -42,13 +53,12 @@ public class GestionTshirtServlet extends HttpServlet {
 		// mila try block
 		Integer nombre = Integer.valueOf(request.getParameter("nombre"));
 		Integer prix = Integer.valueOf(request.getParameter("pu"));
+		String motif = request.getPart("motif").getSubmittedFileName();
 		//
 
 //		Part filePart = request.getPart("motif");
 		
 //		String filename = filePart.getSubmittedFileName();
-		
-		String UPLOAD_DIRECTORY = "uploads";
 		
 		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 		File uploadDir = new File(uploadPath);
@@ -62,7 +72,7 @@ public class GestionTshirtServlet extends HttpServlet {
 		}
 		System.out.println("File uploaded successfully to : " + uploadPath + File.separator + filename);
 		
-		Tshirt tshirt = new Tshirt(filename, couleur, nombre, taille);
+		Tshirt tshirt = new Tshirt(motif, couleur, nombre, taille);
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 		if (tshirtDAO.create(tshirt)) {
 			doGet(request, response);			
@@ -70,6 +80,12 @@ public class GestionTshirtServlet extends HttpServlet {
 			// error handling 
 		};
 		
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doDelete(req, resp);
 	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, com.tish.entities.Tshirt, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,15 +53,21 @@
 				<div></div>
 			</section>
 		</details>
-		<section class="grid">
-			<article>
-				<header> </header>
-				<img />
-				<footer> </footer>
+		<section id="shirt-catalog">
+		<% 
+		List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
+		%>
+		<% for (Tshirt tshirt : liste_tshirt) { %>
+			<article class="shirt-item">
+				<img src="<%= (String) request.getAttribute("upload_path") + tshirt.getMotif() %>" alt="<%= tshirt.getMotif() %>"/>
+				<footer> 
+					<div class="grid">
+						<button>Modifier</button>
+						<button class="secondary">Supprimer</button> 
+					</div>
+				</footer>
 			</article>
-			<article></article>
-			<article></article>
-			<article></article>
+		<% } %>
 		</section>
 	</main>
 </body>
