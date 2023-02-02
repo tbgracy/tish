@@ -13,7 +13,7 @@
 <title>Gestion de t-shirts | Admin</title>
 </head>
 <body>
-	<jsp:include page="../composants/navbar.jsp" />
+	<jsp:include page="../composants/navbar.jsp"/>
 	<main class="container">
 		<details>
 			<summary>Formulaire d'ajout de t-shirt</summary>
@@ -40,8 +40,8 @@
 						</fieldset>
 						<fieldset class="grid">
 							<label for="nombre">Nombre en stock <input type="number"
-								name="nombre" id="nombre" required></label> <label for="pu">Prix
-								unitaire <input type="number" name="pu" id="pu" required>
+								name="nombre" id="nombre" min='0' required></label> <label for="pu">Prix
+								unitaire <input type="number" min='0' name="pu" id="pu" required>
 							</label>
 						</fieldset>
 						<button>Ajouter</button>
