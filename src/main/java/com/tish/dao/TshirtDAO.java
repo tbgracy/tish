@@ -33,11 +33,11 @@ public class TshirtDAO extends DAO<Tshirt> {
 	}
 
 	@Override
-	public boolean delete(Tshirt obj) {
+	public boolean delete(int idTshirt) {
 		String DELET_TSHIRT_SQL = "DELETE FROM Tshirt WHERE idTshirt=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(DELET_TSHIRT_SQL);
-			prepare.setInt(1, obj.getIdTShirt());
+			prepare.setInt(1, idTshirt);
 			prepare.executeUpdate();
 			prepare.close();
 			return true;
