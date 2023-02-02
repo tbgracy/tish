@@ -27,12 +27,11 @@ public class ModifcationTshirt extends HttpServlet {
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
 		Tshirt tshirt = tshirtDAO.find(idTshirt);
 		if (tshirt != null) {
-			request.setAttribute("tshirt", tshirt);
-			request.getRequestDispatcher("/WEB-INF/jsp/pages/modification_tshirt.jsp").forward(request, response);
+			request.setAttribute("tshirt", tshirt); 
 		} else {
-			// TODO
+			request.setAttribute("erreur", "cette id n'existe pas dans la base de donné");
 		}
-
+		request.getRequestDispatcher("/WEB-INF/jsp/pages/modification_tshirt.jsp").forward(request, response);
 	}
 
 	@Override
@@ -45,12 +44,14 @@ public class ModifcationTshirt extends HttpServlet {
 		Tshirt tshirt = tshirtDAO.find(idTshirt);
 		if (tshirt != null) {
 			if (tshirtDAO.update(tshirt)) {
-				doPost(request, response);
+				response.sendRedirect("gestion_tshirt");
 			} else {
-				// TODO
+				request.setAttribute("erreur", "le modification a echoué!");
+				request.getRequestDispatcher("/WEB-INF/jsp/pages/modification_tshirt.jsp").forward(request, response);
 			}
 		} else {
-			// TODO error handling
+			request.setAttribute("erreur", "cette id n'existe pas dans la base de donné");
+			request.getRequestDispatcher("/WEB-INF/jsp/pages/modification_tshirt.jsp").forward(request, response);
 		}
 	}
 
