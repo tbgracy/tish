@@ -31,18 +31,18 @@ public class GestionTshirtServlet extends HttpServlet {
 	public GestionTshirtServlet() {
 		super();
 	}
-	
+
 	String UPLOAD_DIRECTORY = "uploads";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
-		
+
 		List<Tshirt> liste_tshirt = tshirtDAO.getAll();
 		request.setAttribute("liste_tshirt", liste_tshirt);
 		String uploadPath = getServletContext().getContextPath() + File.separator + UPLOAD_DIRECTORY + File.separator;
 		request.setAttribute("upload_path", uploadPath);
-		
+
 		request.getRequestDispatcher("/WEB-INF/jsp/pages/gestion_tshirt.jsp").forward(request, response);
 	}
 
@@ -57,58 +57,30 @@ public class GestionTshirtServlet extends HttpServlet {
 		//
 
 //		Part filePart = request.getPart("motif");
-		
+
 //		String filename = filePart.getSubmittedFileName();
-		
+
 		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 		File uploadDir = new File(uploadPath);
-		if (!uploadDir.exists()) uploadDir.mkdir();
-		
+		if (!uploadDir.exists())
+			uploadDir.mkdir();
+
 		String filename = "";
-		
+
 		for (Part part : request.getParts()) {
 			filename = part.getSubmittedFileName();
 			part.write(uploadPath + File.separator + filename);
 		}
 		System.out.println("File uploaded successfully to : " + uploadPath + File.separator + filename);
-		
+
 		Tshirt tshirt = new Tshirt(motif, couleur, nombre, taille);
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 		if (tshirtDAO.create(tshirt)) {
-			doGet(request, response);			
-		}else {
-			// error handling 
-		};
-		
-	}
-	
-	@Override
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
-		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
-		
-		Tshirt tshirt = tshirtDAO.find(idTshirt);
-		if (tshirt != null) {
-			if (tshirtDAO.update(tshirt)) {
-				doPut(request, response);
-			} else {
-				// TODO
-			}
+			doGet(request, response);
 		} else {
-			// TODO error handling
+			// error handling
 		}
-	};
-	
-	@Override
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
-		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
-		if (tshirtDAO.delete(idTshirt)) {
-			doDelete(request, response);
-		} else {
-			// TODO: error handling
-		}		
+
 	}
 
 }

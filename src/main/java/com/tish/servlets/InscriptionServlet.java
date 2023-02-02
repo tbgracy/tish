@@ -55,7 +55,6 @@ public class InscriptionServlet extends HttpServlet {
 			response.getWriter().append("Error creating user " + pseudo);
 			doGet(request, response);
 		}
-		;
 	}
 
 }
