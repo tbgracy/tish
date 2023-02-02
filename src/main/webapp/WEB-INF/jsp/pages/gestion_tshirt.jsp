@@ -13,24 +13,23 @@
 </head>
 <body>
 	<jsp:include page="../composants/navbar.jsp" />
-	<main>
+	<main class="container">
 		<details>
 			<summary>Formulaire d'ajout de t-shirt</summary>
-			<section class="grid">
-				<div></div>
+			<section class="container">
 				<article>
 					<form method="POST" action="gestion_tshirt"
 						enctype="multipart/form-data">
 						<fieldset>
 							<label for="mofif">
 								Motif sur le t-shirt 
-								<input type="file" name="motif" id="motif" required>
+								<input type="file" name="motif" id="motif" accept=".png, .jpg, .jpeg" required>
 							</label> 
 							<div class="grid">
 							<label for="couleur">
 								Couleur du t-shirt 
 								<input type="color" name="couleur" id="couleur" required>
-							</label> 
+							</label>
 							<label for="taille">Taille
 							<select id="taille"
 								name="taille" required>
@@ -50,7 +49,6 @@
 						<button>Ajouter</button>
 					</form>
 				</article>
-				<div></div>
 			</section>
 		</details>
 		<section id="shirt-catalog">
