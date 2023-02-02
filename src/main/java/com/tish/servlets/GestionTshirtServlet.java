@@ -83,9 +83,32 @@ public class GestionTshirtServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doDelete(req, resp);
+		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
+		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
+		
+		Tshirt tshirt = tshirtDAO.find(idTshirt);
+		if (tshirt != null) {
+			if (tshirtDAO.update(tshirt)) {
+				doPut(request, response);
+			} else {
+				// TODO
+			}
+		} else {
+			// TODO error handling
+		}
+	};
+	
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
+		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
+		if (tshirtDAO.delete(idTshirt)) {
+			doDelete(request, response);
+		} else {
+			// TODO: error handling
+		}		
 	}
 
 }

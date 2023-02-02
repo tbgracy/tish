@@ -34,11 +34,11 @@ public class CommandeDAO extends DAO<Commande> {
 	}
 
 	@Override
-	public boolean delete(Commande obj) {
+	public boolean delete(int idCmd) {
 		String DELETE_COMMAND_SQL = "DELETE FROM Commande WHERE idCmd=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(DELETE_COMMAND_SQL);
-			prepare.setInt(1, obj.getIdCmd());
+			prepare.setInt(1, idCmd);
 			prepare.executeUpdate();
 			prepare.close();
 			return true;

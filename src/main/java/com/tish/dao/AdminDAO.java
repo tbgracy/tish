@@ -31,11 +31,11 @@ public class AdminDAO extends DAO<Admin> {
 	}
 
 	@Override
-	public boolean delete(Admin obj) {
+	public boolean delete(int idAdmin) {
 		String DELETE_ADMIN_SQL = "DELETE FROM Admin WHERE nomUtilisateur=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(DELETE_ADMIN_SQL);
-			prepare.setInt(1, obj.getIdAdmin());
+			prepare.setInt(1, idAdmin);
 			prepare.executeUpdate();
 			prepare.close();
 			return true;

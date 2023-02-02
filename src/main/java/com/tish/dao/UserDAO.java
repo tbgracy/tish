@@ -32,11 +32,11 @@ public class UserDAO extends DAO<User> {
 	}
 
 	@Override
-	public boolean delete(User obj) {
+	public boolean delete(int idUtilisateur) {
 		String DELETE_USER_SQL = "DELETE FROM Utilisateur WEHRE idUtilisateur=?";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(DELETE_USER_SQL);
-			prepare.setInt(1, obj.getIdUtilisateur());
+			prepare.setInt(1, idUtilisateur);
 			prepare.executeUpdate();
 			prepare.close();
 			return true;
