@@ -51,11 +51,14 @@ public class ModifcationTshirt extends HttpServlet {
 		String taille = request.getParameter("taille");
 		int prix = Integer.valueOf(request.getParameter("pu"));
 
-		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
-
 		Tshirt old_tshirt = tshirtDAO.find(idTshirt);
 
-		if (old_tshirt.getMotif() != new_tshirt.getMotif() && new_tshirt.getMotif() != null) {
+		if (motif == null)
+			motif = old_tshirt.getMotif();
+
+		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
+
+		if (old_tshirt.getMotif() != new_tshirt.getMotif()) {
 			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 			File uploadDir = new File(uploadPath);
 			if (!uploadDir.exists())
