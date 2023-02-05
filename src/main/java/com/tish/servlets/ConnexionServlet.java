@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tish.dao.UserDAO;
 import com.tish.database.DatabaseConnection;
@@ -33,7 +34,8 @@ public class ConnexionServlet extends HttpServlet {
 		User wannaConnectUser = userDAO.find(pseudo);
 		if (wannaConnectUser != null) {
 			if (wannaConnectUser.getMotDePasse().equals(motDePasse)) {
-				// session
+				HttpSession session = request.getSession();
+				session.setAttribute("user", wannaConnectUser);
 				response.sendRedirect("accueil");
 			} else {
 				response.sendRedirect("connexion?error=motdepasse");
