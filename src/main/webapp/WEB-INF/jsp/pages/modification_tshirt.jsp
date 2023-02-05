@@ -16,18 +16,17 @@
 	<jsp:include page="../composants/navbar.jsp" />
 	<% Tshirt tshirt = (Tshirt) request.getAttribute("tshirt"); %>
 	<main class="container">
+		<section class='grid'>
+		<img src='<%= (String) request.getAttribute("upload_path") + tshirt.getMotif() %>' alt="tshirt image">
 		<form action="modification_tshirt" method='POST'>
-			<a href="#close" aria-label="Close" class="close"
-				onclick="fermerMessage(event)"></a>
 			<h3>Modifier t-shirt</h3>
-			<img src="" alt="">
 			<fieldset>
 				<label for="mofif"> Motif sur le t-shirt <input type="file"
-					name="motif" id="motif" accept=".png, .jpg, .jpeg" required>
+					name="motif" id="motif" accept=".png, .jpg, .jpeg">
 				</label>
 				<div class="grid">
-					<label for="couleur" value="<%= tshirt.getCouleur()%>"> Couleur du t-shirt <input
-						type="color" name="couleur" id="couleur" required>
+					<label for="couleur"> Couleur du t-shirt <input
+						type="color" name="couleur" id="couleur"  value="<%= tshirt.getCouleur()%>" required>
 					</label> <label for="taille">Taille <select id="taille"
 						name="taille" required>
 							<option <% if (tshirt.getTaille().equals("S")) { %>selected<% } %>>S</option>
@@ -40,13 +39,14 @@
 			<fieldset class="grid">
 				<label for="nombre">Nombre en stock <input type="number"
 					name="nombre" id="nombre" value=<%= tshirt.getNombre() %> required></label> <label for="pu">Prix
-					unitaire <input type="number" name="pu" id="pu" required>
+					unitaire <input type="number" name="pu" id="pu" value="${tshirt.getPrix()}" required>
 				</label>
 			</fieldset>
 			<input type="number" name="idTshirt" id="idTshirt" value="<%= tshirt.getIdTShirt() %>" hidden>
 			<button>Enregistrer les modifications</button>
 			<a role='button' href='gestion_tshirt'>Annuler</a>
 		</form>
+	</section>
 	</main>
 	<script
 		src="${ pageContext.request.contextPath }/ressources/scripts/script.js"></script>

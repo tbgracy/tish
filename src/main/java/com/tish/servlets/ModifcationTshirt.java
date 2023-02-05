@@ -1,5 +1,6 @@
 package com.tish.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,9 @@ public class ModifcationTshirt extends HttpServlet {
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
 		Tshirt tshirt = tshirtDAO.find(idTshirt);
 		if (tshirt != null) {
-			request.setAttribute("tshirt", tshirt); 
+			String uploadPath = getServletContext().getContextPath() + File.separator + "uploads" + File.separator;
+			request.setAttribute("upload_path", uploadPath);
+			request.setAttribute("tshirt", tshirt);
 		} else {
 			request.setAttribute("erreur", "cette id n'existe pas dans la base de donné");
 		}
@@ -37,7 +40,6 @@ public class ModifcationTshirt extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 
