@@ -47,7 +47,7 @@ public class ModifcationTshirt extends HttpServlet {
 		String couleur = request.getParameter("coleur");
 		int nombre = Integer.valueOf(request.getParameter("nombre"));
 		String taille = request.getParameter("taille");
-		int prix = Integer.valueOf(request.getParameter("prix"));
+		int prix = Integer.valueOf(request.getParameter("pu"));
 		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
 
 		Tshirt old_tshirt = tshirtDAO.find(idTshirt);
