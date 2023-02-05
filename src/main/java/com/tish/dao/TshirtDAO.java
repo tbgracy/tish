@@ -23,7 +23,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 			prepare.setString(1, obj.getMotif());
 			prepare.setString(2, obj.getCouleur());
 			prepare.setInt(3, obj.getNombre());
-			prepare.setString(4, obj.getMotif());
+			prepare.setString(4, obj.getTaille());
 			prepare.setInt(5, obj.getPrix());
 			prepare.executeUpdate();
 			prepare.close();
