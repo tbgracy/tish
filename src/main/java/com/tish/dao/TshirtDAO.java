@@ -76,17 +76,12 @@ public class TshirtDAO extends DAO<Tshirt> {
 			ResultSet result = prepare.executeQuery();
 			if (result.next()) {
 				tish = new Tshirt(result.getInt("idTshirt"), result.getString("motif"), result.getString("couleur"),
-<<<<<<< HEAD
-						result.getInt("nombre"), result.getString("taille"));
+						result.getInt("nombre"), result.getString("taille"), result.getInt("prix"));
 				prepare.close();
 				return tish;
 			} else {
 				return null;
 			}
-=======
-						result.getInt("nombre"), result.getString("taille"), result.getInt("prix"));
-			prepare.close();
->>>>>>> 97b70f5 (Add: champ prix)
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
