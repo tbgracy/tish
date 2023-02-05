@@ -1,7 +1,7 @@
     <nav>
         <ul>
             <li><a href="">Accueil</a></li>
-            <li><a href="#">Catalogue</a></li>
+            <li><a href="catalogue">Catalogue</a></li>
         </ul>
         <ul>
             <li>
