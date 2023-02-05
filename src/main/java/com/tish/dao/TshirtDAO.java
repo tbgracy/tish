@@ -72,14 +72,18 @@ public class TshirtDAO extends DAO<Tshirt> {
 			PreparedStatement prepare = this.connect.prepareStatement(FIND_TSHIRT_SQL);
 			prepare.setInt(1, id);
 			ResultSet result = prepare.executeQuery();
-			if (result.next())
+			if (result.next()) {
 				tish = new Tshirt(result.getInt("idTshirt"), result.getString("motif"), result.getString("couleur"),
 						result.getInt("nombre"), result.getString("taille"));
-			prepare.close();
+				prepare.close();
+				return tish;
+			} else {
+				return null;
+			}
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
-		return tish;
 	}
 
 	@Override
