@@ -11,7 +11,7 @@ import com.tish.dao.TshirtDAO;
 import com.tish.database.DatabaseConnection;
 import com.tish.entities.Tshirt;
 
-@WebServlet("/modifcation_tshirt")
+@WebServlet("/modification_tshirt")
 public class ModifcationTshirt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
