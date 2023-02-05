@@ -54,11 +54,6 @@ public class GestionTshirtServlet extends HttpServlet {
 		Integer nombre = Integer.valueOf(request.getParameter("nombre"));
 		Integer prix = Integer.valueOf(request.getParameter("pu"));
 		String motif = request.getPart("motif").getSubmittedFileName();
-		//
-
-//		Part filePart = request.getPart("motif");
-
-//		String filename = filePart.getSubmittedFileName();
 
 		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 		File uploadDir = new File(uploadPath);
