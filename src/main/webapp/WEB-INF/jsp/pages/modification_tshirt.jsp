@@ -18,7 +18,7 @@
 	<main class="container">
 		<section class='grid'>
 		<img src='<%= (String) request.getAttribute("upload_path") + tshirt.getMotif() %>' alt="tshirt image">
-		<form action="modification_tshirt" method='POST'>
+		<form action="modification_tshirt" enctype='multipart/form-data' method="POST">
 			<h3>Modifier t-shirt</h3>
 			<fieldset>
 				<label for="mofif"> Motif sur le t-shirt <input type="file"

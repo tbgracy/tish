@@ -3,6 +3,7 @@ package com.tish.servlets;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import com.tish.database.DatabaseConnection;
 import com.tish.entities.Tshirt;
 
 @WebServlet("/modification_tshirt")
+@MultipartConfig()
 public class ModifcationTshirt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
@@ -44,10 +46,11 @@ public class ModifcationTshirt extends HttpServlet {
 			throws ServletException, IOException {
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
 		String motif = request.getParameter("motif");
-		String couleur = request.getParameter("coleur");
+		String couleur = request.getParameter("couleur");
 		int nombre = Integer.valueOf(request.getParameter("nombre"));
 		String taille = request.getParameter("taille");
 		int prix = Integer.valueOf(request.getParameter("pu"));
+
 		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
 
 		Tshirt old_tshirt = tshirtDAO.find(idTshirt);
@@ -57,12 +60,12 @@ public class ModifcationTshirt extends HttpServlet {
 			File uploadDir = new File(uploadPath);
 			if (!uploadDir.exists())
 				uploadDir.mkdir();
-			
+
 			String filename = "";
-			
-			for (Part part: request.getParts()) {
+
+			for (Part part : request.getParts()) {
 				filename = part.getSubmittedFileName();
-				part.write(uploadPath + File.separator + filename); 
+				part.write(uploadPath + File.separator + filename);
 			}
 			System.out.println("File uploaded successfully to : " + uploadPath + File.separator + filename);
 		}
@@ -71,7 +74,7 @@ public class ModifcationTshirt extends HttpServlet {
 			response.sendRedirect("gestion_tshirt");
 		} else {
 			request.setAttribute("erreur", "le modification a echoué!");
-			request.getRequestDispatcher("/WEB-INF/jsp/pages/modification_tshirt.jsp").forward(request, response);
+			response.sendRedirect("modification_tshirt?idTshirt=" + idTshirt);
 		}
 
 	}
