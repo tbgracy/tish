@@ -58,7 +58,7 @@ public class ModifcationTshirt extends HttpServlet {
 
 		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
 
-		if (old_tshirt.getMotif() != new_tshirt.getMotif()) {
+		if (!old_tshirt.getMotif().equals(new_tshirt.getMotif())) {
 			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 			File uploadDir = new File(uploadPath);
 			if (!uploadDir.exists())
