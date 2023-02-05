@@ -45,7 +45,7 @@ public class ModifcationTshirt extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
-		String motif = request.getParameter("motif");
+		String motif = request.getPart("motif").getSubmittedFileName();
 		String couleur = request.getParameter("couleur");
 		int nombre = Integer.valueOf(request.getParameter("nombre"));
 		String taille = request.getParameter("taille");

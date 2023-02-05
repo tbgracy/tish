@@ -102,6 +102,7 @@ public class TshirtDAO extends DAO<Tshirt> {
 			}
 			return list_tish;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
