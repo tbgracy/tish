@@ -72,6 +72,7 @@
 			%>
 		</section>
 	</main>
+	<jsp:include page='../composants/footer.jsp'/>
 	<script
 		src="${ pageContext.request.contextPath }/ressources/scripts/script.js"></script>
 </body>

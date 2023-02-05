@@ -45,6 +45,7 @@ nav img {
 nav {
 	padding-right: 20px;
 	padding-left: 20px;
+	border-bottom: 2px solid #eeeeec;
 }
 
 #shirt-catalog {
@@ -57,4 +58,24 @@ nav {
 	width: 400px;
 	height: fit-content;
 	margin: 20px;
+}
+
+footer {
+	background-color: black;
+	text-align: center;
+}
+
+footer section {
+	margin-bottom: 0;
+}
+
+footer img {
+	width: 60px;
+	height: 60px;
+}
+
+.tshirt-color {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
 }
