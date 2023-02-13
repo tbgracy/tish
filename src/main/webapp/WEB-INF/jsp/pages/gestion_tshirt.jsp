@@ -65,6 +65,7 @@
 			</header>
 			<div class='shirt-price'><b><%= tshirt.getFormatedPrix() %> MGA</b></div>
 			<div class='shirt-count'><%= tshirt.getNombre() %> pièce(s) en stock</div>
+			<div class='shirt-count'>Taille <%= tshirt.getTaille() %></div>
 				<footer>
 					<div class="grid-fluid">
 						<a href="modification_tshirt?idTshirt=<%= tshirt.getIdTShirt() %>" role='button'>Modifier</a>
