@@ -1,6 +1,8 @@
 package com.tish.entities;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Tshirt implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -74,6 +76,11 @@ public class Tshirt implements Serializable {
 
 	public int getPrix() {
 		return prix;
+	}
+	
+	public String getFormatedPrix() {
+        NumberFormat nf = NumberFormat.getInstance(new Locale("fr", "MLG"));
+        return nf.format(prix);
 	}
 
 	public void setPrix(int prix) {
