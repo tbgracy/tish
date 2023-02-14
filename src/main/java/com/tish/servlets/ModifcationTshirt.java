@@ -53,8 +53,9 @@ public class ModifcationTshirt extends HttpServlet {
 
 		Tshirt old_tshirt = tshirtDAO.find(idTshirt);
 
-		if (motif == null)
+		if (motif == "") {
 			motif = old_tshirt.getMotif();
+		}
 
 		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
 
