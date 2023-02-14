@@ -57,9 +57,15 @@
 			for (Tshirt tshirt : liste_tshirt) {
 			%>
 			<article class="shirt-item">
+			<header>
 				<img
 					src="<%=(String) request.getAttribute("upload_path") + tshirt.getMotif()%>"
-					alt="<%=tshirt.getMotif()%>" />
+					alt="<%=tshirt.getMotif()%>"/>
+			<div class='shirt-color' style="background-color: <%= tshirt.getCouleur() %>"></div>
+			</header>
+			<div class='shirt-price'><b><%= tshirt.getFormatedPrix() %> MGA</b></div>
+			<div class='shirt-count'><%= tshirt.getNombre() %> pièce(s) en stock</div>
+			<div class='shirt-count'>Taille <%= tshirt.getTaille() %></div>
 				<footer>
 					<div class="grid-fluid">
 						<a href="modification_tshirt?idTshirt=<%= tshirt.getIdTShirt() %>" role='button'>Modifier</a>

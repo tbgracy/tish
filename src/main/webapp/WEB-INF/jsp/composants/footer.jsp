@@ -1,9 +1,4 @@
 <footer data-theme='dark'>
-	<p>
-		<img
-			src="${pageContext.request.contextPath}/ressources/images/tish-logo.png"
-			alt="logo_tish">
-	</p>
 	<section class="grid">
 		<section>
 			<h4>A propos de tish</h4>
@@ -28,6 +23,7 @@
 			</section>
 		</section>
 	</section>
-	<section>&copy; Tsierenana Botramanagna Gracy &amp; Nomeniavo
-		Fitahiana Joe, 2023</section>
+	<hr>
+	&copy; Tsierenana Botramanagna Gracy &amp; Nomeniavo
+		Fitahiana Joe, 2023
 </footer>
