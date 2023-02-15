@@ -15,6 +15,36 @@
 <body>
 	<jsp:include page='../composants/navbar.jsp' />
 	<main class='container'>
+			<details>
+			<summary>Trouver LE t-shirt</summary>
+			<section class="container">
+				<article>
+					<form method="POST" action="gestion_tshirt"
+						enctype="multipart/form-data">
+						<fieldset>
+							<div class="grid">
+								<label for="couleur"> Couleur du t-shirt <input
+									type="color" name="couleur" id="couleur" required>
+								</label> <label for="taille">Taille <select id="taille"
+									name="taille" required>
+										<option>S</option>
+										<option>M</option>
+										<option>L</option>
+										<option>XL</option>
+								</select></label>
+							</div>
+						</fieldset>
+						<fieldset class="grid">
+							<label for="pu_min">Prix minimum<input type="number"
+								name="pu_min" id="pu_min" min='0' required></label> <label for="pu_max">Prix
+								maximum <input type="number" min='0' name="pu_max" id="pu_max" required>
+							</label>
+						</fieldset>
+						<button>Chercher</button>
+					</form>
+				</article>
+			</section>
+		</details>
 		<section id="shirt-catalog">
 			<%
 			List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
