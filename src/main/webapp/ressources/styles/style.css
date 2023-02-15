@@ -1,35 +1,35 @@
 @charset "UTF-8";
-/* Orange Light scheme (Default) */
+/* Teal Light scheme (Default) */
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --primary: #fb8c00;
-  --primary-hover: #f57c00;
-  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary: #00897b;
+  --primary-hover: #00796b;
+  --primary-focus: rgba(0, 137, 123, 0.125);
   --primary-inverse: #FFF;
 }
 
-/* Orange Dark scheme (Auto) */
+/* Teal Dark scheme (Auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --primary: #fb8c00;
-    --primary-hover: #ff9800;
-    --primary-focus: rgba(251, 140, 0, 0.25);
+    --primary: #00897b;
+    --primary-hover: #009688;
+    --primary-focus: rgba(0, 137, 123, 0.25);
     --primary-inverse: #FFF;
   }
 }
 
-/* Orange Dark scheme (Forced) */
+/* Teal Dark scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --primary: #fb8c00;
-  --primary-hover: #ff9800;
-  --primary-focus: rgba(251, 140, 0, 0.25);
+  --primary: #00897b;
+  --primary-hover: #009688;
+  --primary-focus: rgba(0, 137, 123, 0.25);
   --primary-inverse: #FFF;
 }
 
-/* Orange (Common styles) */
+/* Teal (Common styles) */
 :root {
   --form-element-active-border-color: var(--primary);
   --form-element-focus-color: var(--primary-focus);
@@ -37,37 +37,54 @@
   --switch-checked-background-color: var(--primary);
 }
 
+
 nav img {
 	width: 60px;
 	height: 60px;
 }
 
 nav {
+	--nav-border-color: rgba(115, 130, 140, 0.2);
+	--nav-background-color: rgba(255, 255, 255, 0.7);
 	padding-right: 20px;
 	padding-left: 20px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	backdrop-filter: saturate(180%) blur(20px);
+	background-color: var(--nav-background-color);
+    box-shadow: 0 1px 0 var(--nav-border-color);
 	/* border-bottom: 2px solid #eeeeec; */
 }
 
+nav h3 {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	margin-top: 35px;
+}
+
 img[alt="cart-icon"] {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 }
 
 .cart-icon {
-	border-radius: 50%;
 	position: relative;
 }
 
 .cart-items-count {
 	border-radius: 50%;
-	background-color: red;
+	background-color: #E04433;
 	color: white;
 	width: auto;
 	height: 20px;
 	width: 20px;
 	position: absolute;
 	right: 15px;
-	top: 20px;
+	top: 5px;
 	display: flex;
 	padding: 0;
 	justify-content: center;
@@ -121,3 +138,7 @@ footer img {
 	height: 40px;
 	border-radius: 50%;
 }
+
+/*a:hover:not([role="button"]) {
+	text-decoration: underline wavy;
+}*/

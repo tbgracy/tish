@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+figure img {
+	height : 80vh;
+	border-radius: 0.25rem;
+}
+
+#call-to-action section {
+	display: flex;
+	align-items: center;
+}
