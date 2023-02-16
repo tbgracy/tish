@@ -11,6 +11,11 @@ public class TshirtItem implements Serializable {
 	public TshirtItem() {
 
 	}
+	
+	public TshirtItem(int idTshirt, int quantite) {
+		this.idTshirt = idTshirt;
+		this.quantite = quantite;
+	}
 
 	public TshirtItem(int idCmd, int idTshirt, int quantite) {
 		this.idCmd = idCmd;
