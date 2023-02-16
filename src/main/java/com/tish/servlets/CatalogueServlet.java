@@ -17,12 +17,13 @@ import com.tish.entities.Tshirt;
 @WebServlet("/catalogue")
 public class CatalogueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public CatalogueServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CatalogueServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 		List<Tshirt> liste_tshirt = tshirtDAO.getAll();
 		request.setAttribute("liste_tshirt", liste_tshirt);
@@ -31,7 +32,8 @@ public class CatalogueServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/jsp/pages/catalogue.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

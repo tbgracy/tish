@@ -23,7 +23,6 @@ public class ModifcationTshirt extends HttpServlet {
 
 	public ModifcationTshirt() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
