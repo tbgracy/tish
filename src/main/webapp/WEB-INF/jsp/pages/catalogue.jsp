@@ -10,7 +10,7 @@
 	href="${ pageContext.request.contextPath }/ressources/styles/pico.min.css">
 <link rel="stylesheet"
 	href="${ pageContext.request.contextPath }/ressources/styles/style.css">
-<title>tish | Catalogue</title>
+<title>tish | Catalogue</title> 
 </head>
 <body>
 	<jsp:include page='../composants/navbar.jsp' />
@@ -50,7 +50,7 @@
 			List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
 			%>
 			<%
-			for (Tshirt tshirt : liste_tshirt) {
+			for (Tshirt tshirt : liste_tshirt.subList(0, 3)) {
 			%>
 			<article class="shirt-item">
 			<header>
@@ -61,15 +61,13 @@
 			</header>
 			<div class='shirt-price'><b><%= tshirt.getFormatedPrix() %> MGA</b></div>
 			<div class='shirt-count'>Taille <%= tshirt.getTaille() %></div>
-				<!-- footer -->
 					<form action='ajouter_dans_panier' style="margin-bottom: 0">
 					<div class="grid-fluid">
-					<input type='number' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité'>
-					<input type='number' value='<%= tshirt.getIdTShirt() %>' hidden>
+					<input type='number' name='quantite' id='quantite' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité'>
+					<input type='number' name='id' id='id' value='<%= tshirt.getIdTShirt() %>' hidden>
 					<button>Ajouter dans le panier</button>
 					</div>
 					</form>
-				<!-- /footer -->
 			</article>
 			<%
 			}

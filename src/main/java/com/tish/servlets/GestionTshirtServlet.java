@@ -66,7 +66,6 @@ public class GestionTshirtServlet extends HttpServlet {
 			filename = part.getSubmittedFileName();
 			part.write(uploadPath + File.separator + filename);
 		}
-		System.out.println("File uploaded successfully to : " + uploadPath + File.separator + filename);
 
 		Tshirt tshirt = new Tshirt(motif, couleur, nombre, taille, prix);
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());

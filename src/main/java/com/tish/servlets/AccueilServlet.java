@@ -17,7 +17,7 @@ import com.tish.entities.Tshirt;
 /**
  * Servlet implementation class AccueilServlet
  */
-@WebServlet("/accueil")
+@WebServlet({"/accueil", ""})
 public class AccueilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

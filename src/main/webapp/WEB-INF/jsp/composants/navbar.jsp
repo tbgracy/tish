@@ -3,11 +3,11 @@
             <!--<li>
                 <div id="logo"><img src="${pageContext.request.contextPath}/ressources/images/tish-logo.png" alt="logo_tish"></div>
             </li>-->
-            <li><h3>tish<span style="color: #00897b;">.</span></h3></li>
+            <li><a href="accueil"><h3>tish<span style="color: #00897b;">.</span></h3></a></li>
             <li><a href="accueil">Accueil</a></li>
             <li><a href="catalogue">Catalogue</a></li>
         </ul>
-        <ul>
+        <ul> 
         <% if (session.getAttribute("user") == null) {%>
             <li><a href="connexion">Connexion</a></li>
             <li><a href="inscription">Inscription</a></li>

@@ -1,4 +1,5 @@
 <footer data-theme='dark'>
+<a>MANUEL</a>
 	<section class="grid">
 		<section>
 			<h4>A propos de tish</h4>
