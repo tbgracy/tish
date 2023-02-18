@@ -50,6 +50,7 @@
 			List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
 			%>
 			<%
+			if (! liste_tshirt.isEmpty()) {
 			for (Tshirt tshirt : liste_tshirt.subList(0, 3)) {
 			%>
 			<article class="shirt-item">
@@ -70,6 +71,7 @@
 					</form>
 			</article>
 			<%
+			}
 			}
 			%>
 		</section>
