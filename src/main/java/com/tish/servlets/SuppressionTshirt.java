@@ -25,7 +25,7 @@ public class SuppressionTshirt extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idTshirt = Integer.valueOf(request.getParameter("idTshirt"));
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 		if (tshirtDAO.delete(idTshirt)) {
