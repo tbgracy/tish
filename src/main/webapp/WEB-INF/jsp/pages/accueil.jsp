@@ -44,7 +44,8 @@
 			List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
 			%>
 			<%
-			for (Tshirt tshirt : liste_tshirt) {
+			if (! liste_tshirt.isEmpty()){
+			for (Tshirt tshirt : liste_tshirt.subList(0, 3)) {
 			%>
 			<article class="shirt-item">
 			<header>
@@ -66,6 +67,7 @@
 				<!-- /footer -->
 			</article>
 			<%
+			}
 			}
 			%>
 		</section> 

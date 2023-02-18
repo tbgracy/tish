@@ -37,10 +37,12 @@ public class AjouterPanier extends HttpServlet {
 		@SuppressWarnings("unchecked")
 		// verifier si pannier session exist déja et non vide
 		List<TshirtItem> oldpannier = (List<TshirtItem>) session.getAttribute("pannier");
-		if (!oldpannier.isEmpty())
+		if (oldpannier != null)
 			pannier.addAll(oldpannier);
 
 		session.setAttribute("pannier", pannier);
+		
+		response.sendRedirect("catalogue");
 
 	}
 
