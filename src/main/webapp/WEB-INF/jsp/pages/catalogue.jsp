@@ -50,8 +50,7 @@
 			List<Tshirt> liste_tshirt = (ArrayList<Tshirt>) request.getAttribute("liste_tshirt");
 			%>
 			<%
-			if (! liste_tshirt.isEmpty()) {
-			for (Tshirt tshirt : liste_tshirt.subList(0, 3)) {
+			for (Tshirt tshirt : liste_tshirt) {
 			%>
 			<article class="shirt-item">
 			<header>
@@ -62,16 +61,18 @@
 			</header>
 			<div class='shirt-price'><b><%= tshirt.getFormatedPrix() %> MGA</b></div>
 			<div class='shirt-count'>Taille <%= tshirt.getTaille() %></div>
-					<form action='ajouter_dans_panier' style="margin-bottom: 0">
+					<form action='ajouter_dans_panier' style="margin-bottom: 0" method='POST'>
 					<div class="grid-fluid">
-					<input type='number' name='quantite' id='quantite' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité'>
-					<input type='number' name='id' id='id' value='<%= tshirt.getIdTShirt() %>' hidden>
+					<div class='grid'>
+					<label for='number'>Quantité</label>
+					<input type='number' name='quantite' id='quantite' value='1' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité'>
+					</div>
+					<input type='number' name='idTshirt' id='idTshirt' value='<%= tshirt.getIdTShirt() %>' hidden>
 					<button>Ajouter dans le panier</button>
 					</div>
 					</form>
 			</article>
 			<%
-			}
 			}
 			%>
 		</section>
