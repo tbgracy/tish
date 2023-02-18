@@ -23,7 +23,6 @@ public class ModifcationTshirt extends HttpServlet {
 
 	public ModifcationTshirt() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -53,9 +52,8 @@ public class ModifcationTshirt extends HttpServlet {
 
 		Tshirt old_tshirt = tshirtDAO.find(idTshirt);
 
-		if (motif == "") {
+		if (motif.isEmpty())
 			motif = old_tshirt.getMotif();
-		}
 
 		Tshirt new_tshirt = new Tshirt(idTshirt, motif, couleur, nombre, taille, prix);
 

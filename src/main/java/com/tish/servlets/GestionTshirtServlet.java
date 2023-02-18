@@ -16,9 +16,6 @@ import com.tish.dao.TshirtDAO;
 import com.tish.database.DatabaseConnection;
 import com.tish.entities.Tshirt;
 
-/**
- * Servlet implementation class GestionTshirtServlet
- */
 @WebServlet("/gestion_tshirt")
 @MultipartConfig(
 //		fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
