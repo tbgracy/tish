@@ -139,6 +139,23 @@ footer img {
 	border-radius: 50%;
 }
 
+.img-container {
+	width: 100px;
+	height: 100px;
+}
+
+.img-container img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;	
+}
+
+thead th {
+	font-weight: bold;
+}
+
 /*a:hover:not([role="button"]) {
 	text-decoration: underline wavy;
 }*/
