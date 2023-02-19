@@ -45,7 +45,8 @@
 			%>
 			<%
 			if (! liste_tshirt.isEmpty()){
-			for (Tshirt tshirt : liste_tshirt.subList(0, 3)) {
+				 int len = liste_tshirt.size() > 3 ? 3 : liste_tshirt.size();
+			for (Tshirt tshirt : liste_tshirt.subList(0, len)) {
 			%>
 			<article class="shirt-item">
 			<header>
