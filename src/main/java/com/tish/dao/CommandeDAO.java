@@ -18,7 +18,7 @@ public class CommandeDAO extends DAO<Commande> {
 
 	@Override
 	public boolean create(Commande obj) {
-		String INSERT_COMMANDE_SQL = "INSERT INTO Commande (idUtilisateur) VALUES (?))";
+		String INSERT_COMMANDE_SQL = "INSERT INTO Commande (idUtilisateur) VALUES (?)";
 		try {
 			PreparedStatement prepare = this.connect.prepareStatement(INSERT_COMMANDE_SQL);
 			prepare.setInt(1, obj.getIdUtilisateur());

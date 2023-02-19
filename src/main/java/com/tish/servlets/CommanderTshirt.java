@@ -46,7 +46,6 @@ public class CommanderTshirt extends HttpServlet {
 					if (tshirtItemDAO.create(item)) {
 						session.setAttribute("pannier", pannier_vide);
 						response.sendRedirect("catalogue");
-						System.out.println("commane succes");
 					} else {
 						System.out.println("creation de item a échoué");
 					}

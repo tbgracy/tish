@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebFilter(
-		urlPatterns = { "/panier", "/gestion_tshirt"}, 
+		urlPatterns = {"/gestion_tshirt"}, 
 		servletNames = { 
 				"GestionTshirtServlet", 
 				"SuppressionTshirt", 
