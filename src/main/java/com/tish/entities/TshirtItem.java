@@ -1,6 +1,7 @@
 package com.tish.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class TshirtItem implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -11,7 +12,7 @@ public class TshirtItem implements Serializable {
 	public TshirtItem() {
 
 	}
-	
+
 	public TshirtItem(int idTshirt, int quantite) {
 		this.idTshirt = idTshirt;
 		this.quantite = quantite;
@@ -45,5 +46,10 @@ public class TshirtItem implements Serializable {
 
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
+	}
+
+	@Override
+	public String toString() {
+		return "TshirtItem [idCmd=" + idCmd + ", idTshirt=" + idTshirt + ", quantite=" + quantite + "]";
 	}
 }
