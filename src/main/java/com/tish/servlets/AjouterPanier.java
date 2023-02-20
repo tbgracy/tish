@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.tish.dao.TshirtItemDAO;
 import com.tish.entities.TshirtItem;
 
 @WebServlet("/ajouter_dans_panier")
@@ -37,11 +36,12 @@ public class AjouterPanier extends HttpServlet {
 		@SuppressWarnings("unchecked")
 		// verifier si pannier session exist déja et non vide
 		List<TshirtItem> oldpannier = (List<TshirtItem>) session.getAttribute("pannier");
-		
+
 		if (oldpannier != null) {
 			for (TshirtItem oldItem : oldpannier) {
 				if (oldItem.getIdTshirt() == idTshirt) {
-					int q = oldItem.getQuantite() + quantite;
+//					int q = oldItem.getQuantite() + quantite;
+					int q = quantite;
 					item.setQuantite(q);
 					pannier.set(pannier.indexOf(item), item);
 				} else {
@@ -49,7 +49,7 @@ public class AjouterPanier extends HttpServlet {
 				}
 			}
 		}
-		
+
 		session.setAttribute("pannier", pannier);
 
 		response.sendRedirect("catalogue");
