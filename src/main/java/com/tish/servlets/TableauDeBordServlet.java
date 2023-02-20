@@ -16,6 +16,8 @@ public class TableauDeBordServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int nombre_commandes = 0;
+		request.setAttribute("nombre_commandes", nombre_commandes);
 		request.getRequestDispatcher("/WEB-INF/jsp/pages/tableau_de_bord.jsp").forward(request, response);
 	}
 
