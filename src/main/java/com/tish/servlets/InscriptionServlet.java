@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tish.Securite;
 import com.tish.dao.UserDAO;
 import com.tish.database.DatabaseConnection;
 import com.tish.entities.User;
@@ -29,7 +30,7 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pseudo = request.getParameter("pseudo");
-		String motDePasse = request.getParameter("motdepasse");
+		String motDePasse = Securite.hasher(request.getParameter("motdepasse"));
 		String numeroTelephone = request.getParameter("numerotel");
 		UserDAO userDAO = new UserDAO(DatabaseConnection.getInstance());
 		User newUser = new User(pseudo, motDePasse, numeroTelephone);

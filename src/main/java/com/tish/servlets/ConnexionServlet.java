@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tish.Securite;
 import com.tish.dao.AdminDAO;
 import com.tish.dao.UserDAO;
 import com.tish.database.DatabaseConnection;
@@ -31,8 +32,7 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pseudo = request.getParameter("pseudo");
-		String motDePasse = request.getParameter("motdepasse");
-
+		String motDePasse = Securite.hasher(request.getParameter("motdepasse"));
 		UserDAO userDAO = new UserDAO(DatabaseConnection.getInstance());
 		User wannaConnectUser = userDAO.find(pseudo);
 		if (wannaConnectUser != null) {
