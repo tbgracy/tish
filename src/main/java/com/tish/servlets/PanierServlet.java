@@ -31,7 +31,7 @@ public class PanierServlet extends HttpServlet {
 		List<TshirtItem> panier = new ArrayList<TshirtItem>();
 
 		panier = (List<TshirtItem>) session.getAttribute("pannier");
-		
+
 		List<Tshirt> tshirts = new ArrayList<Tshirt>();
 		TshirtDAO tshirtDAO = new TshirtDAO(DatabaseConnection.getInstance());
 		if (panier != null) {
@@ -40,10 +40,10 @@ public class PanierServlet extends HttpServlet {
 				tshirts.add(tshirt);
 			}
 		}
-		
+
 		String uploadPath = getServletContext().getContextPath() + File.separator + "uploads" + File.separator;
 		request.setAttribute("upload_path", uploadPath);
-		
+
 		request.setAttribute("liste_tshirts", tshirts);
 		request.getRequestDispatcher("/WEB-INF/jsp/pages/panier.jsp").forward(request, response);
 	}

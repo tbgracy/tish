@@ -85,7 +85,7 @@
 			</table>
 		</figure>
 		<div class='grid'>
-			<form>
+			<form action="vider_panier" method="POST">
 				<button class='secondary'>Vider panier</button>
 			</form>
 			<form action='commander_tshirt' method="POST">
