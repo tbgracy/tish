@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tish.entities.User;
+
 @WebFilter(urlPatterns = { "/commander_tshirt" }, servletNames = {})
 public class ConnexionFilter extends HttpFilter implements Filter {
 
@@ -32,10 +34,16 @@ public class ConnexionFilter extends HttpFilter implements Filter {
 
 		HttpSession session = req.getSession();
 
-		if (session.getAttribute(UTILISATEUR_SESSION) == null) {
-			res.sendRedirect(req.getContextPath() + "/connexion");
+		if (session.getAttribute(UTILISATEUR_SESSION) != null) {
+			try {
+				User user = (User) session.getAttribute(UTILISATEUR_SESSION);
+				chain.doFilter(request, response);
+			} catch (Exception e) {
+				System.out.println(e);
+				res.sendRedirect(req.getContextPath() + "/connexion");
+			}
 		} else {
-			chain.doFilter(req, res);
+			res.sendRedirect(req.getContextPath() + "/connexion");
 		}
 	}
 
