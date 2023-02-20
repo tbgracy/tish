@@ -28,7 +28,7 @@
 	</dialog>
 	--%>
 	<jsp:include page="../composants/message.jsp"><jsp:param
-			name="message" value="Inscription réussie" /></jsp:include>
+			name="message" value="Inscription reussie" /></jsp:include>
 	<%
 	}
 	%>

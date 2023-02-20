@@ -1,6 +1,3 @@
-@charset "UTF-8";
-/* Teal Light scheme (Default) */
-/* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
   --primary: #00897b;
@@ -9,8 +6,6 @@
   --primary-inverse: #FFF;
 }
 
-/* Teal Dark scheme (Auto) */
-/* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --primary: #00897b;
@@ -20,8 +15,6 @@
   }
 }
 
-/* Teal Dark scheme (Forced) */
-/* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
   --primary: #00897b;
   --primary-hover: #009688;
@@ -29,14 +22,12 @@
   --primary-inverse: #FFF;
 }
 
-/* Teal (Common styles) */
 :root {
   --form-element-active-border-color: var(--primary);
   --form-element-focus-color: var(--primary-focus);
   --switch-color: var(--primary-inverse);
   --switch-checked-background-color: var(--primary);
 }
-
 
 nav img {
 	width: 60px;
@@ -98,14 +89,24 @@ img[alt="cart-icon"] {
 }
 
 .shirt-item {
-	width: 400px;
-	height: fit-content;
+	width: 300px;
 	margin: 20px;
 	text-align: center;
 }
 
+.shirt-item header {
+	margin-bottom: 0;
+}
+
+.shirt-item footer {
+	margin-top: 0;
+	padding: 10px;
+}
+
 .shirt-item img {
 	object-fit: cover;
+	width: 300px;
+	height: 300px;
 	border-top-left-radius: 0.25rem;
 	border-top-right-radius: 0.25rem;
 }
@@ -120,8 +121,12 @@ img[alt="cart-icon"] {
 }
 
 footer {
-	background-color: black;
+	font-size: smaller;
 	text-align: center;
+}
+
+footer p {
+	font-size: smaller;
 }
 
 footer section {

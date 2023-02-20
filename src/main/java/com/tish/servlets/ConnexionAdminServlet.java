@@ -14,17 +14,18 @@ import com.tish.database.DatabaseConnection;
 import com.tish.entities.Admin;
 import com.tish.entities.User;
 
-@WebServlet("/connexion")
-public class ConnexionServlet extends HttpServlet {
+@WebServlet("/connexion-admin")
+public class ConnexionAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ConnexionServlet() {
+	public ConnexionAdminServlet() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("isAdmin", false);
+		String error = (String) request.getAttribute("error");
+		request.setAttribute("isAdmin", true);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/pages/connexion.jsp").forward(request, response);
 	}
 
@@ -33,19 +34,19 @@ public class ConnexionServlet extends HttpServlet {
 		String pseudo = request.getParameter("pseudo");
 		String motDePasse = request.getParameter("motdepasse");
 
-		UserDAO userDAO = new UserDAO(DatabaseConnection.getInstance());
-		User wannaConnectUser = userDAO.find(pseudo);
-		if (wannaConnectUser != null) {
-			if (wannaConnectUser.getMotDePasse().equals(motDePasse)) {
+		AdminDAO adminDAO = new AdminDAO(DatabaseConnection.getInstance());
+		Admin wannaConnectAdmin = adminDAO.find(pseudo);
+		if (wannaConnectAdmin != null) {
+			if (wannaConnectAdmin.getMotDePasse().equals(motDePasse)) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", wannaConnectUser);
-				session.setAttribute("username", wannaConnectUser.getNomUtilisateur());
-				response.sendRedirect("accueil");
+				session.setAttribute("user", wannaConnectAdmin);
+				session.setAttribute("username", wannaConnectAdmin.getNomUtilisateur());
+				response.sendRedirect("gestion_tshirt");
 			} else {
-				response.sendRedirect("connexion?message=Mot de passe incorrect");
+				response.sendRedirect("connexion-admin?message=Mot de passe incorrect");
 			}
 		} else {
-			response.sendRedirect("connexion?message=Utilisateur non existant");
+			response.sendRedirect("connexion-admin?message=Administrateur non existant");
 		}
 
 	}

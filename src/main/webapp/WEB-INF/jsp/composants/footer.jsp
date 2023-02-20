@@ -1,6 +1,12 @@
-<footer data-theme='dark'>
+<footer class='container'>
+<hr>
 <a>MANUEL</a>
 	<section class="grid">
+		<section>
+			<h4>Contact</h4>
+			<p>Email: contact@tish.com</p>
+			<p>Téléphone: +261 34 42 381 10</p>
+		</section>
 		<section>
 			<h4>A propos de tish</h4>
 			<p>Tish est un site de vente de t-shirts en ligne qui vous permet
@@ -12,15 +18,10 @@
 				humeurs et occasions.</p>
 		</section>
 		<section>
-			<h4>Contact</h4>
-			<p>Email: contact@tish.com</p>
-			<p>Téléphone: +261 34 42 381 10</p>
-		</section>
-		<section>
 			<h4>Suivez-nous sur les réseaux</h4>
 			<section>
-				<a href="facebook.com/tish">Facebook</a> | <a
-					href="twitter.com/tish">Twitter</a> | <a href="instagram.com/tish">Instagram</a>
+				<a href="https://facebook.com/tish">Facebook</a> | <a
+					href="https://twitter.com/tish">Twitter</a> | <a href="https://instagram.com/tish">Instagram</a>
 			</section>
 		</section>
 	</section>

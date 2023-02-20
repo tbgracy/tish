@@ -35,7 +35,7 @@
 					grâce à notre collection de t-shirts uniques et originaux.</p>
 				<a role="button" href="catalogue">Parcourir le catalogue</a>
 			</div>
-			</section>
+			</section>  
 		</section>
 		<section>
 			<h2>Populaires en ce moment</h2>
@@ -57,15 +57,15 @@
 			</header>
 			<div class='shirt-price'><b><%= tshirt.getFormatedPrix() %> MGA</b></div>
 			<div class='shirt-count'>Taille <%= tshirt.getTaille() %></div>
-				<!-- footer -->
-					<form action='ajouter_dans_panier' style="margin-bottom: 0">
+				<footer>
+					<form action='ajouter_dans_panier' style="margin-bottom: 0" method='post'>
 					<div class="grid-fluid">
-					<input type='number' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité'>
-					<input type='number' value='<%= tshirt.getIdTShirt() %>' hidden>
+					<input name='quantite' type='number' min='1' max='<%= tshirt.getNombre() %>' placeholder='Quantité' value="1" hidden>
+					<input name='idTshirt' type='number' value='<%= tshirt.getIdTShirt() %>' hidden>
 					<button>Ajouter dans le panier</button>
 					</div>
 					</form>
-				<!-- /footer -->
+				</footer>
 			</article>
 			<%
 			}

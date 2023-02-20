@@ -13,27 +13,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "/commander_tshirt" }, servletNames = {})
-public class ConnexionFilter extends HttpFilter implements Filter {
+@WebFilter(
+		urlPatterns = {"/gestion_tshirt"}, 
+		servletNames = { 
+				"GestionTshirtServlet", 
+				"SuppressionTshirt", 
+				"ModifcationTshirt"
+		})
+public class ConnexionAdminFilter extends HttpFilter implements Filter {
+       
+    private static final String UTILISATEUR_SESSION = "user";
 
-	private static final String UTILISATEUR_SESSION = "user";
-
-	public ConnexionFilter() {
-		super();
-	}
+	public ConnexionAdminFilter() {
+        super();
+    }
 
 	public void destroy() {
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-
+		
 		HttpSession session = req.getSession();
-
+		
 		if (session.getAttribute(UTILISATEUR_SESSION) == null) {
-			res.sendRedirect(req.getContextPath() + "/connexion");
+			res.sendRedirect(req.getContextPath() + "/connexion-admin");
 		} else {
 			chain.doFilter(req, res);
 		}

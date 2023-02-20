@@ -67,14 +67,17 @@ public class AdminDAO extends DAO<Admin> {
 			PreparedStatement prepare = this.connect.prepareStatement(FIND_ADMIN_SQL);
 			prepare.setString(1, nomUtilisateur);
 			ResultSet result = prepare.executeQuery();
-			if (result.next())
+			if (result.next()) {
 				admin = new Admin(nomUtilisateur, result.getString("motDePasse"));
 			prepare.close();
+			return admin;
+			} else {
+				return null;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return admin;
 	}
 
 	@Override

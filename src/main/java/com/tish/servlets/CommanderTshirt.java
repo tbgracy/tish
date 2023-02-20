@@ -33,7 +33,7 @@ public class CommanderTshirt extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		@SuppressWarnings("unchecked")
+//		@SuppressWarnings("unchecked")
 		List<TshirtItem> pannier = (List<TshirtItem>) session.getAttribute("pannier");
 		
 		List<TshirtItem> pannier_vide = new ArrayList<TshirtItem>();
@@ -46,15 +46,14 @@ public class CommanderTshirt extends HttpServlet {
 					if (tshirtItemDAO.create(item)) {
 						session.setAttribute("pannier", pannier_vide);
 						response.sendRedirect("catalogue");
-					} else {
-						System.out.println("creation de item a échoué");
+						return;
 					}
 				} else {
-					System.out.println("creation de commande a échoué");
+//					System.out.println("creation de commande a échoué");
 				}
 			}
 		} else {
-			System.out.println("il n'y a pas de item dans le pannier");
+//			System.out.println("il n'y a pas de item dans le pannier");
 		}
 	}
 

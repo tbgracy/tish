@@ -13,7 +13,7 @@
 <title>Gestion de t-shirts | Admin</title>
 </head>
 <body>
-	<jsp:include page="../composants/navbar.jsp"/>
+	<jsp:include page="../composants/navbar_admin.jsp"/>
 	<main class="container">
 		<details>
 			<summary>Formulaire d'ajout de t-shirt</summary>

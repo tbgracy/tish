@@ -21,6 +21,9 @@
 	int total_general = 0;
 	%>
 	<main class='container'>
+		<%
+		if (tshirts != null && tshirts.size() != 0) {
+		%>
 		<figure>
 			<table>
 				<thead>
@@ -33,19 +36,17 @@
 				</thead>
 				<tbody>
 					<%
-					if (tshirts != null) {
-						// for (Tshirt tshirt : tshirts) { 
-						for (int i = 0; i < tshirts.size(); i++) {
-							TshirtItem item = new TshirtItem();
-							for (TshirtItem item_ : panier) {
-						if (item_.getIdTshirt() == tshirts.get(i).getIdTShirt()) {
-							item = item_;
-							break;
-						}
+					for (int i = 0; i < tshirts.size(); i++) {
+						TshirtItem item = new TshirtItem();
+						for (TshirtItem item_ : panier) {
+							if (item_.getIdTshirt() == tshirts.get(i).getIdTShirt()) {
+						item = item_;
+						break;
 							}
-							int total = tshirts.get(i).getPrix() * item.getQuantite();
-							total_general += total;
-							String formated_total = NumberFormat.getInstance(new Locale("fr", "MLG")).format(total);
+						}
+						int total = tshirts.get(i).getPrix() * item.getQuantite();
+						total_general += total;
+						String formated_total = NumberFormat.getInstance(new Locale("fr", "MLG")).format(total);
 					%>
 					<tr>
 						<td><div class='grid'>
@@ -57,9 +58,10 @@
 										style="background-color: <%=tshirts.get(i).getCouleur()%>"></div>
 								</div>
 								<div>
-									<div>Taille :
-									<%=tshirts.get(i).getTaille()%></div>
-								<a href="#" class='secondary'>Retirer du panier</a>
+									<div>
+										Taille :
+										<%=tshirts.get(i).getTaille()%></div>
+									<a href="#" class='secondary'>Retirer du panier</a>
 								</div>
 							</div></td>
 						<td><%=tshirts.get(i).getFormatedPrix()%> MGA</td>
@@ -68,31 +70,36 @@
 					</tr>
 					<%
 					}
-					} else {
-					out.println("Votre panier est vide");
-					}
 					%>
 				</tbody>
 				<tfoot>
-				<%
-				String formated_total_general = NumberFormat.getInstance(new Locale("fr", "MLG")).format(total_general);
-				%>
+					<%
+					String formated_total_general = NumberFormat.getInstance(new Locale("fr", "MLG")).format(total_general);
+					%>
 					<tr>
 						<th><b>Total</b></th>
 						<th colspan='2'></th>
-						<th><%= formated_total_general %> MGA</th>
+						<th><%=formated_total_general%> MGA</th>
 					</tr>
 				</tfoot>
 			</table>
 		</figure>
 		<div class='grid'>
-		<form>
-		<button class='secondary'>Vider panier</button>
-		</form>
-		<form action='commander_tshirt' method="POST">
-		<button>Envoyer commande</button>
-		</form>
+			<form>
+				<button class='secondary'>Vider panier</button>
+			</form>
+			<form action='commander_tshirt' method="POST">
+				<button>Envoyer commande</button>
+			</form>
 		</div>
+		<%
+		
+		} else {
+		%>
+		<p>Votre panier est vide, parcourez <a href="/tish/catalogue">notre catalogue</a> pour trouver votre t-shirt.</p>
+		<%
+		}
+		%>
 	</main>
 	<jsp:include page='../composants/footer.jsp' />
 </body>

@@ -65,19 +65,21 @@
 				<div class='shirt-count'>
 					Taille
 					<%=tshirt.getTaille()%></div>
-				<form action='ajouter_dans_panier' style="margin-bottom: 0"
-					method='POST'>
-					<div class="grid-fluid">
-						<div class='grid'>
-							<label for='number'>Quantité</label> <input type='number'
-								name='quantite' id='quantite' value='1' min='1'
-								max='<%=tshirt.getNombre()%>' placeholder='Quantité'>
+				<footer>
+					<form action='ajouter_dans_panier' style="margin-bottom: 0"
+						method='POST'>
+						<div class="grid-fluid">
+							<div class='grid'>
+								<label for='number'>Quantité</label> <input type='number'
+									name='quantite' id='quantite' value='1' min='1'
+									max='<%=tshirt.getNombre()%>' placeholder='Quantité'>
+							</div>
+							<input type='number' name='idTshirt' id='idTshirt'
+								value='<%=tshirt.getIdTShirt()%>' hidden>
+							<button>Ajouter dans le panier</button>
 						</div>
-						<input type='number' name='idTshirt' id='idTshirt'
-							value='<%=tshirt.getIdTShirt()%>' hidden>
-						<button>Ajouter dans le panier</button>
-					</div>
-				</form>
+					</form>
+				</footer>
 			</article>
 			<%
 			}

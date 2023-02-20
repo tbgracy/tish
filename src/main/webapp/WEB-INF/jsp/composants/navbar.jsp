@@ -19,7 +19,7 @@
 		<%
 		} else {
 		%>
-		<li><a href="deconnexion?user_id">Déconnexion</a>
+		<li><a href="deconnexion?user_id">Déconnexion (<%= session.getAttribute("username") %>)</a>
 		<li>
 			<%
 			}
