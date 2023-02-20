@@ -93,10 +93,20 @@
 			</form>
 		</div>
 		<%
-		
 		} else {
 		%>
-		<p>Votre panier est vide, parcourez <a href="/tish/catalogue">notre catalogue</a> pour trouver votre t-shirt.</p>
+		<div class='grid'>
+		<div>
+			<p>Votre panier est vide.</p>
+			<p>
+				Parcourez notre <a href="/tish/catalogue">catalogue</a> pour trouver
+				votre t-shirt.
+			</p>
+		</div>
+			<img
+				src="${pageContext.request.contextPath }/ressources/images/empty_cart.png"
+				alt="" width=600 style='margin-left: auto; margin-rigth: auto'>
+		</div>
 		<%
 		}
 		%>

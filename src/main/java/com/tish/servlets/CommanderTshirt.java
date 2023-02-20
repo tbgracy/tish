@@ -45,8 +45,8 @@ public class CommanderTshirt extends HttpServlet {
 					item.setIdCmd(commande.getIdCmd());
 					if (tshirtItemDAO.create(item)) {
 						session.setAttribute("pannier", pannier_vide);
-						response.sendRedirect("catalogue");
-						return;
+//						response.sendRedirect("catalogue");
+						request.getRequestDispatcher("/WEB-INF/jsp/pages/commande_effectuee.jsp").forward(request, response);
 					}
 				} else {
 //					System.out.println("creation de commande a échoué");
