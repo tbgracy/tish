@@ -161,6 +161,8 @@ thead th {
 	font-weight: bold;
 }
 
-/*a:hover:not([role="button"]) {
-	text-decoration: underline wavy;
-}*/
+.dash {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
