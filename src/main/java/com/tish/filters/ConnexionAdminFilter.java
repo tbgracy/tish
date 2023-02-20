@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tish.entities.Admin;
+
 @WebFilter(
-		urlPatterns = {"/gestion_tshirt"}, 
+		urlPatterns = {"/gestion_tshirt", "/tableau_de_bord"}, 
 		servletNames = { 
 				"GestionTshirtServlet", 
 				"SuppressionTshirt", 
@@ -37,10 +39,16 @@ public class ConnexionAdminFilter extends HttpFilter implements Filter {
 		
 		HttpSession session = req.getSession();
 		
-		if (session.getAttribute(UTILISATEUR_SESSION) == null) {
-			res.sendRedirect(req.getContextPath() + "/connexion-admin");
+		if (session.getAttribute(UTILISATEUR_SESSION) != null) {
+			try {
+				Admin admin = (Admin) session.getAttribute(UTILISATEUR_SESSION);
+				chain.doFilter(req, res);
+			} catch (Exception e) {
+				System.out.println(e);
+				res.sendRedirect(req.getContextPath() + "/connexion-admin");
+			}
 		} else {
-			chain.doFilter(req, res);
+			res.sendRedirect(req.getContextPath() + "/connexion-admin");
 		}
 	}
 

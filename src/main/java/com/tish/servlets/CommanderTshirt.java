@@ -58,7 +58,7 @@ public class CommanderTshirt extends HttpServlet {
 
 						session.setAttribute("pannier", panier_vide);
 						response.sendRedirect("catalogue");
-						return;
+						request.getRequestDispatcher("/WEB-INF/jsp/pages/commande_effectuee.jsp").forward(request, response);
 					}
 				} else {
 //					System.out.println("creation de commande a échoué");

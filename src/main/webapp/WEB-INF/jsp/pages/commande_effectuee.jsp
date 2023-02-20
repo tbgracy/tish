@@ -10,17 +10,15 @@
 	href="${ pageContext.request.contextPath }/ressources/styles/pico.min.css">
 <link rel="stylesheet"
 	href="${ pageContext.request.contextPath }/ressources/styles/style.css">
-<title>Tableau de bord | Admin</title>
+<title>tish | Commande effectuée</title>
 </head>
 <body>
-	<jsp:include page="../composants/navbar_admin.jsp"/>
-	<main class="container">
-	<article style='width: 600px;' class='dash'>
-		${nombre_commandes } t-shirts commandés depuis le lancement du site. 
-	</article>
+	<jsp:include page='../composants/navbar.jsp' />
+	<main class='container'>
+		Votre commande a bien été effectuée. <img
+			src="${pageContext.request.contextPath }/ressources/images/order_delivered.png"
+			alt="" width=600>
 	</main>
-	<jsp:include page='../composants/footer.jsp'/>
-	<script
-		src="${ pageContext.request.contextPath }/ressources/scripts/script.js"></script>
+	<jsp:include page='../composants/footer.jsp' />
 </body>
 </html>

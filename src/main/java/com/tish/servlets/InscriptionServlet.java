@@ -30,17 +30,21 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pseudo = request.getParameter("pseudo");
-		String motDePasse = Securite.hasher(request.getParameter("motdepasse"));
+		String motDePasse = request.getParameter("motdepasse");
+		String motDePasseConf = request.getParameter("motdepasseconf");
+		if (!motDePasse.equals(motDePasseConf)) {
+			response.sendRedirect("inscription?message=Les mots de passe doivent etre les memes.");
+			return;
+		}
 		String numeroTelephone = request.getParameter("numerotel");
 		UserDAO userDAO = new UserDAO(DatabaseConnection.getInstance());
-		User newUser = new User(pseudo, motDePasse, numeroTelephone);
+		User newUser = new User(pseudo, Securite.hasher(motDePasse), numeroTelephone);
 		if (userDAO.create(newUser)) {
 			request.setAttribute("connexionReussie", true);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/pages/inscription.jsp").forward(request,
 					response);
 		} else {
-			response.getWriter().append("Error creating user " + pseudo);
-			doGet(request, response);
+			response.sendRedirect("inscription?message=Erreur lors de l'ajout de l'utilisateur " + pseudo + ".<br> Veuillez verifier les informations entrees.");
 		}
 	}
 

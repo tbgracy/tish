@@ -1,6 +1,5 @@
 <footer class='container'>
 <hr>
-<a>MANUEL</a>
 	<section class="grid">
 		<section>
 			<h4>Contact</h4>
@@ -25,6 +24,7 @@
 			</section>
 		</section>
 	</section>
+	<a href="${pageContext.request.contextPath }/ressources/manuel-tish.pdf">Manuel d'utilisation</a>
 	<hr>
 	&copy; Tsierenana Botramanagna Gracy &amp; Nomeniavo
 		Fitahiana Joe, 2023
