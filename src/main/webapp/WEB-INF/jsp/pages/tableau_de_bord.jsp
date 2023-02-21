@@ -16,7 +16,7 @@
 	<jsp:include page="../composants/navbar_admin.jsp"/>
 	<main class="container">
 	<article style='width: 600px;' class='dash'>
-		${nombre_commandes } t-shirts commandés depuis le lancement du site. 
+		${ nombreCmd } t-shirts commandés depuis le lancement du site. 
 	</article>
 	</main>
 	<jsp:include page='../composants/footer.jsp'/>

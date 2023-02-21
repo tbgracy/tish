@@ -38,12 +38,14 @@ public class ConnexionFilter extends HttpFilter implements Filter {
 			try {
 				User user = (User) session.getAttribute(UTILISATEUR_SESSION);
 				chain.doFilter(request, response);
+//				return;
 			} catch (Exception e) {
-				System.out.println(e);
 				res.sendRedirect(req.getContextPath() + "/connexion");
+//				return;
 			}
 		} else {
 			res.sendRedirect(req.getContextPath() + "/connexion");
+//			return;
 		}
 	}
 

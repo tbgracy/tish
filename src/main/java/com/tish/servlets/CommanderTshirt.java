@@ -57,7 +57,7 @@ public class CommanderTshirt extends HttpServlet {
 						tishDAO.update(tish);
 
 						session.setAttribute("pannier", panier_vide);
-						response.sendRedirect("catalogue");
+//						response.sendRedirect("catalogue");
 						request.getRequestDispatcher("/WEB-INF/jsp/pages/commande_effectuee.jsp").forward(request, response);
 					}
 				} else {
