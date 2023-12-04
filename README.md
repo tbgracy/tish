@@ -12,15 +12,15 @@ This project was created as part of a school project to apply web development co
 For the UI, we used [Pico CSS](https://picocss.com/) for a more eye pleasing result.
 
 ## Features 🚀
-T-Shirt Catalog: Browse a diverse catalog of T-shirts with images, descriptions, and prices.
+**T-Shirt Catalog:** Browse a diverse catalog of T-shirts with images, descriptions, and prices.
 
-Add to Cart: Add your favorite T-shirts to the shopping cart for an easy checkout process.
+**Add to Cart:** Add your favorite T-shirts to the shopping cart for an easy checkout process.
 
-Cart Management: Modify the quantity of items in the cart and remove items if needed.
+**Cart Management:** Modify the quantity of items in the cart and remove items if needed.
 
-Place an Order: Complete your purchase by providing necessary delivery information.
+**Place an Order:** Complete your purchase by providing necessary delivery information.
 
-Order Confirmation: Receive an order confirmation with a summary of the purchased items.
+**Order Confirmation:** Receive an order confirmation with a summary of the purchased items.
 
 ## User Manual 📖
 Refer to the complete user manual to understand the features and usage of the application. The manual is available [here](https://drive.google.com/file/d/1mwYYqa60LabVJxpWG9xMqdoG3KWVuiQz/view?usp=drive_link).
