@@ -4,20 +4,20 @@
 		<section>
 			<h4>Contact</h4>
 			<p>Email: contact@tish.com</p>
-			<p>Téléphone: +261 34 42 381 10</p>
+			<p>Tï¿½lï¿½phone: +261 34 42 381 10</p>
 		</section>
 		<section>
 			<h4>A propos de tish</h4>
 			<p>Tish est un site de vente de t-shirts en ligne qui vous permet
-				d'exprimer votre personnalité à travers vos vêtements. Nous croyons
-				que les t-shirts sont plus que des vêtements de base, ils peuvent
-				être un moyen de vous faire remarquer et de démontrer votre
-				individualité. C'est pourquoi nous proposons une large gamme de
-				t-shirts uniques et originaux qui correspondent à différents styles,
+				d'exprimer votre personnalitï¿½ ï¿½ travers vos vï¿½tements. Nous croyons
+				que les t-shirts sont plus que des vï¿½tements de base, ils peuvent
+				ï¿½tre un moyen de vous faire remarquer et de dï¿½montrer votre
+				individualitï¿½. C'est pourquoi nous proposons une large gamme de
+				t-shirts uniques et originaux qui correspondent ï¿½ diffï¿½rents styles,
 				humeurs et occasions.</p>
 		</section>
 		<section>
-			<h4>Suivez-nous sur les réseaux</h4>
+			<h4>Suivez-nous sur les rï¿½seaux</h4>
 			<section>
 				<a href="https://facebook.com/tish">Facebook</a> | <a
 					href="https://twitter.com/tish">Twitter</a> | <a href="https://instagram.com/tish">Instagram</a>

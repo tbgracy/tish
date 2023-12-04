@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DatabaseConnection {
-	private String url = "jdbc:sqlite:tish.db";
+	private String url = "jdbc:sqlite:/mnt/d/javaProject/tish/tish.db";
 	
 	private static Connection connect;
 	
