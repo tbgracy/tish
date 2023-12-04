@@ -11,13 +11,9 @@
 <title>tish - Connexion</title>
 </head>
 <body>
-	<%
-	if (!(Boolean) request.getAttribute("isAdmin")) {
-	%>
-	<jsp:include page="../composants/navbar.jsp" />
-	<%
-	}
-	%>
+	<% if (!(Boolean) request.getAttribute("isAdmin")){%>
+		<jsp:include page="../composants/navbar.jsp" />
+	<% } %>
 	<main class="grid">
 		<div></div>
 		<article>
@@ -28,7 +24,7 @@
 				<h3>
 					Connexion
 					<%if ((Boolean) request.getAttribute("isAdmin")) {%>
-					(admin)
+						(admin)
 					<%}%>
 				</h3>
 				<% if (request.getParameter("message") != null) {%>
