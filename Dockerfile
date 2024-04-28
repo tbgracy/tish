@@ -15,7 +15,7 @@ FROM tomcat:9-jdk8-openjdk-slim
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the WAR file from the Maven image to the Tomcat image
-COPY --from=builder /usr/src/app/target/tish-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/tish-webapp.war
+COPY --from=builder /usr/src/app/target/tish-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 # Copy your database file to the root directory of Tomcat
 COPY ./tish.db /usr/local/tomcat
