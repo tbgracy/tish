@@ -5,7 +5,7 @@ FROM tomcat:latest
 WORKDIR /app
 
 # Copy the source code to the container
-COPY ./target/build/tish /app
+COPY ./target/*.war /app
 
 # Copy the generated WAR file to the webapps directory
 RUN cp /app/*.war /usr/local/tomcat/webapps/ROOT.war
